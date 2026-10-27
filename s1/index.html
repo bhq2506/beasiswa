@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Daftar beasiswa S1 luar negeri fully funded yang terbuka untuk WNI, tenggat 2026–2027.">
+<title>Peta Beasiswa S1 2026–2027</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: a working register — header summary, month strip, filter bar, then a sortable table that becomes stacked rows on phones */
+:root{
+  --bg:#f5f7f8; --surface:#ffffff; --fg:#14232b; --muted:#5a6b74; --line:#dbe3e7;
+  --accent:#0b6e8a; --accent-soft:#e1f0f4;
+  --ok:#1f7a4d; --ok-soft:#e3f3ea; --est:#9a5b00; --est-soft:#fbf0dc; --roll:#5b4aa8; --roll-soft:#ece9f8; --late:#b4372b;
+  --f-display:"Bricolage Grotesque",ui-sans-serif,system-ui,sans-serif;
+  --f-body:"Public Sans",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0f171b; --surface:#16222a; --fg:#e4edf1; --muted:#93a6b0; --line:#273741;
+  --accent:#5cc3dd; --accent-soft:#163440;
+  --ok:#6fd39e; --ok-soft:#173225; --est:#f0b45a; --est-soft:#3a2b14; --roll:#b3a6f5; --roll-soft:#29244a; --late:#ff8a7c; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f171b; --surface:#16222a; --fg:#e4edf1; --muted:#93a6b0; --line:#273741;
+  --accent:#5cc3dd; --accent-soft:#163440;
+  --ok:#6fd39e; --ok-soft:#173225; --est:#f0b45a; --est-soft:#3a2b14; --roll:#b3a6f5; --roll-soft:#29244a; --late:#ff8a7c; color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0}
+img{max-width:100%}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:15px;line-height:1.5}
+.wrap{max-width:1180px;margin:0 auto;padding-block:28px 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;gap:22px}
+h1{font-family:var(--f-display);font-weight:700;font-size:clamp(1.7rem,3.4vw,2.4rem);line-height:1.1;margin:0;text-wrap:balance;letter-spacing:-.01em}
+.lede{color:var(--muted);max-width:68ch;margin:6px 0 0}
+.eyebrow{font-size:.72rem;letter-spacing:.09em;text-transform:uppercase;color:var(--accent);font-weight:600}
+.legend{display:flex;flex-wrap:wrap;gap:8px 14px;font-size:.82rem;color:var(--muted)}
+.chip{display:inline-flex;align-items:center;gap:6px;font-size:.74rem;font-weight:600;padding:2px 9px;border-radius:999px;white-space:nowrap}
+.chip.resmi{background:var(--ok-soft);color:var(--ok)} .chip.est{background:var(--est-soft);color:var(--est)} .chip.roll{background:var(--roll-soft);color:var(--roll)}
+.chip.id{background:var(--accent-soft);color:var(--accent)}
+.chip.part{background:transparent;color:var(--late);border:1px solid currentColor}
+.chip.plain{background:var(--bg);color:var(--muted)}
+/* month strip */
+.strip{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 14px 10px;overflow-x:auto}
+.strip h2{font-size:.8rem;margin:0 0 10px;color:var(--muted);font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+.months{display:grid;grid-template-columns:repeat(12,minmax(54px,1fr));gap:6px;min-width:680px}
+.m{display:grid;gap:4px;justify-items:center;cursor:pointer;background:none;border:0;padding:4px 0;border-radius:6px;color:var(--fg);font:inherit}
+.m:hover,.m[aria-pressed="true"]{background:var(--accent-soft)}
+.m:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.bar{width:70%;background:var(--accent);border-radius:3px 3px 0 0;min-height:2px}
+.barbox{height:64px;display:flex;align-items:flex-end;justify-content:center;width:100%}
+.m .n{font-family:var(--f-mono);font-size:.78rem;font-variant-numeric:tabular-nums}
+.m .lbl{font-size:.72rem;color:var(--muted)}
+/* filters */
+.filters{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.filters input[type=search]{flex:1 1 240px;min-width:0;padding:9px 12px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--fg);font:inherit}
+.filters input:focus-visible,select:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+select{padding:9px 10px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--fg);font:inherit}
+.count{font-size:.85rem;color:var(--muted);margin-left:auto}
+/* table */
+.tbl{background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow-x:auto}
+table{width:100%;border-collapse:collapse;min-width:1040px}
+th,td{text-align:left;vertical-align:top;padding:12px 14px;border-bottom:1px solid var(--line)}
+th{font-size:.74rem;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);font-weight:600;background:var(--surface);position:sticky;top:0}
+th button{all:unset;cursor:pointer} th button:focus-visible{outline:2px solid var(--accent)}
+tr:last-child td{border-bottom:0}
+.name{font-weight:600}
+.note{color:var(--muted);font-size:.84rem;margin-top:3px;max-width:52ch}
+.tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px}
+.dl{font-family:var(--f-mono);font-size:.86rem;font-variant-numeric:tabular-nums}
+table{table-layout:fixed}
+.w-name{width:29%} .w-prov{width:15%} .w-neg{width:10%} .w-cov{width:18%} .w-dl{width:16%} .w-url{width:12%}
+td.c-cov{font-size:.86rem}
+td.c-url a{display:inline-block;max-width:100%;overflow-wrap:anywhere}
+.pager{display:flex;flex-wrap:wrap;align-items:center;gap:6px;justify-content:center}
+.pager button{min-width:36px;padding:7px 10px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--fg);font:inherit;font-variant-numeric:tabular-nums;cursor:pointer}
+.pager button[aria-current="page"]{background:var(--accent);border-color:var(--accent);color:var(--bg);font-weight:600}
+.pager button:disabled{opacity:.4;cursor:default}
+.pager button:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.pager select{padding:6px 8px}
+.pager .per{margin-left:12px;font-size:.85rem;color:var(--muted);display:flex;align-items:center;gap:6px}
+.dsub{font-size:.78rem;color:var(--muted);margin-top:3px}
+.days{font-size:.78rem;font-weight:600;margin-top:4px}
+.days.soon{color:var(--late)} .days.past{color:var(--muted)}
+.back{font-size:.85rem}
+a{color:var(--accent);text-underline-offset:2px;word-break:break-word}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.method h2{font-family:var(--f-display);font-size:1.1rem;margin:0 0 8px}
+.method{font-size:.88rem;color:var(--muted);max-width:80ch}
+.method p{margin:4px 0}
+@media (max-width:720px){
+  table{min-width:0} thead{display:none}
+  tr{display:grid;grid-template-columns:1fr auto;gap:4px 12px;padding:14px;border-bottom:1px solid var(--line)}
+  td{border:0;padding:0} table,tbody{display:block} colgroup{display:none} td.c-name{grid-column:1/-1} td.c-prov{grid-column:1/-1;font-size:.88rem;color:var(--muted)} td.c-neg{display:none} td.c-cov{grid-column:1/-1;font-size:.86rem}
+  td.c-dl{grid-column:1} td.c-url{grid-column:2;text-align:right;align-self:end}
+  .tbl{overflow-x:visible}
+}
+@media (prefers-reduced-motion:no-preference){.bar{transition:height .3s ease}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <div class="back"><a href="../">← Peta Beasiswa PhD</a></div>
+    <div class="eyebrow">Untuk siswa SMA &amp; lulusan baru · fully funded · disusun 27 Oktober 2026</div>
+    <h1>Peta Beasiswa S1 Luar Negeri 2026–2027</h1>
+    <p class="lede">Beasiswa sarjana yang terbuka untuk WNI di Asia, Eropa, Timur Tengah, dan Amerika Utara, dengan tenggat November 2026 sampai 2027. Yang dimasukkan hanya skema yang menanggung SPP dan biaya hidup; skema yang biaya hidupnya kecil atau sebagian diberi tanda. Siklus yang sudah tutup diganti dengan perkiraan siklus berikutnya.</p>
+  </header>
+
+  <div class="legend">
+    <span><span class="chip resmi">Resmi</span> tanggal sudah diumumkan</span>
+    <span><span class="chip est">Estimasi</span> pola siklus sebelumnya, call belum terbit</span>
+    <span><span class="chip roll">Bergulir</span> beda per kampus/proyek</span>
+    <span><span class="chip id">Dana Indonesia</span> studi di luar negeri, pemberi dari RI</span>
+    <span><span class="chip part">Cakupan tidak penuh</span> tunjangan kecil atau ada komponen hidup yang tidak ditanggung</span>
+  </div>
+
+  <section class="strip" aria-label="Sebaran tenggat per bulan">
+    <h2>Tenggat per bulan · klik untuk menyaring</h2>
+    <div class="months" id="months"></div>
+  </section>
+
+  <div class="filters">
+    <input type="search" id="q" placeholder="Cari nama, negara, atau pemberi…" aria-label="Cari">
+    <select id="fStatus" aria-label="Status tanggal">
+      <option value="">Semua status</option><option value="resmi">Resmi</option><option value="est">Estimasi</option><option value="roll">Bergulir</option>
+    </select>
+    <select id="fType" aria-label="Jenis pemberi">
+      <option value="">Pemerintah &amp; universitas</option><option value="gov">Pemerintah</option><option value="uni">Universitas</option>
+    </select>
+    <select id="fReg" aria-label="Kawasan">
+      <option value="">Semua kawasan</option><option>Asia Timur & Tenggara</option><option>Eropa</option><option>Timur Tengah & Afrika</option><option>Amerika Utara</option><option>Lintas negara</option>
+    </select>
+    <select id="fSrc" aria-label="Sumber dana">
+      <option value="">Semua pemberi</option><option value="foreign">Pemberi asing</option><option value="id">Pemberi Indonesia</option>
+    </select>
+    <span class="count" id="count"></span>
+  </div>
+
+  <div class="tbl">
+    <table>
+      <colgroup><col class="w-name"><col class="w-prov"><col class="w-neg"><col class="w-cov"><col class="w-dl"><col class="w-url"></colgroup>
+      <thead><tr>
+        <th><button data-sort="name">Nama Beasiswa</button></th>
+        <th><button data-sort="prov">Pemberi Beasiswa</button></th>
+        <th><button data-sort="neg">Negara</button></th>
+        <th>Cakupan Dana</th>
+        <th><button data-sort="date">Deadline ↑</button></th>
+        <th>URL Informasi</th>
+      </tr></thead>
+      <tbody id="rows"></tbody>
+    </table>
+  </div>
+  <nav class="pager" id="pager" aria-label="Halaman daftar"></nav>
+
+  <section class="method">
+    <h2>Catatan penggunaan</h2>
+    <p>Siapkan jadwal sejak kelas XI. Tenggat universitas AS, Kanada, dan Singapura jatuh November–Maret, sebelum pengumuman kelulusan SMA; nilai rapor semester 1–5, skor SAT/ACT, dan IELTS/TOEFL harus sudah ada.</p>
+    <p>Batas usia: Türkiye Bursları maks 21, World in Serbia di bawah 21, MEXT 17–24, GKS-U di bawah 25, IU Madinah 17–25.</p>
+    <p>"Need-blind" berarti kemampuan bayar tidak memengaruhi penerimaan; besar bantuan dihitung dari dokumen keuangan keluarga (CSS Profile atau formulir kampus). Keluarga berpenghasilan rendah umumnya mendapat paket penuh.</p>
+    <p>Beasiswa ASEAN Singapura memakai Tuition Grant yang mewajibkan kerja 3 tahun di perusahaan terdaftar di Singapura setelah lulus.</p>
+    <p>Tanggal "Estimasi" dapat bergeser. Periksa halaman resmi sebelum membuat jadwal.</p>
+  </section>
+</div>
+
+<script>
+const D=[{"n": "MBZUAI Undergraduate Scholarship (B.Sc. AI), intake Fall 2027","p": "Mohamed bin Zayed University of Artificial Intelligence","c": "Uni Emirat Arab","cov": "SPP penuh + dukungan finansial (tunjangan, akomodasi)","d": "2026-11-01","ds": "1 Nov 2026 (Early Action; Regular 1 Feb 2027)","s": "resmi","t": "uni","src": "foreign","f": "stem","u": "https://mbzuai.ac.ae/study/admission-process","note": "Program S1 AI (Engineering/Business). Wajib lolos admisi dulu; IELTS 6.5. Nilai rapor ±90%.","part": 0},{"n": "Open Doors Russian Scholarship Project (Bachelor)","p": "Pemerintah Federasi Rusia (kuota) via Open Doors","c": "Rusia","cov": "SPP penuh + tunjangan bulanan","d": "2026-11-01","ds": "1 Nov 2026 (registrasi & portofolio)","s": "resmi","t": "gov","src": "foreign","part": 1,"u": "https://od.globaluni.ru/","note": "Program berbahasa Inggris, seleksi portofolio dan wawancara. Tiket, asrama, asuransi tidak ditanggung.","f": "all"},{"n": "Pearson International Scholarship, U of Toronto (Fall 2027)","p": "University of Toronto","c": "Kanada","cov": "SPP, buku, biaya insidental, asrama penuh selama 4 tahun","d": "2026-11-06","ds": "6 Nov 2026 (formulir beasiswa; nominasi sekolah sudah tutup 9 Okt)","s": "resmi","t": "uni","src": "foreign","u": "https://future.utoronto.ca/pearson-scholarships","note": "Wajib dinominasikan sekolah. Siklus berikut: nominasi ≈ awal Okt 2027 untuk masuk 2028. ±37 penerima/tahun.","f": "all","part": 0},{"n": "UBC International Scholars Program (Wehrung & McKellin Awards)","p": "University of British Columbia","c": "Kanada","cov": "Sesuai kebutuhan finansial, bisa menutup SPP + biaya hidup penuh","d": "2026-11-15","ds": "15 Nov 2026 (aplikasi ISP; admisi UBC 1 Des 2026)","s": "resmi","t": "uni","src": "foreign","u": "https://you.ubc.ca/financial-planning/scholarships-awards-international-students/international-scholars/","note": "Wajib nominasi sekolah/organisasi nirlaba. Nilai A di semua mapel. Tanggal dari ringkasan pihak ketiga; konfirmasi di laman UBC.","f": "all","part": 0},{"n": "Harvard College Financial Aid (need-blind internasional)","p": "Harvard University","c": "Amerika Serikat","cov": "100% kebutuhan finansial tanpa pinjaman","d": "2027-01-01","ds": "1 Jan 2027 (Regular; Restrictive Early Action 1 Nov 2026)","s": "resmi","t": "uni","src": "foreign","u": "https://college.harvard.edu/financial-aid","note": "Kemampuan bayar tidak memengaruhi admisi. Keluarga berpendapatan rendah bisa mendapat paket penuh termasuk tiket.","f": "all","part": 0},{"n": "Princeton University Financial Aid (need-blind internasional)","p": "Princeton University","c": "Amerika Serikat","cov": "100% kebutuhan finansial tanpa pinjaman","d": "2027-01-01","ds": "1 Jan 2027 (Regular; Single-Choice Early Action 1 Nov 2026)","s": "resmi","t": "uni","src": "foreign","u": "https://admission.princeton.edu/cost-aid","note": "Paket berbasis kebutuhan berupa hibah, bukan pinjaman.","f": "all","part": 0},{"n": "Dartmouth College Financial Aid (need-blind internasional)","p": "Dartmouth College","c": "Amerika Serikat","cov": "100% kebutuhan finansial tanpa pinjaman","d": "2027-01-01","ds": "1 Jan 2027 (Regular; Early Decision 1 Nov 2026)","s": "resmi","t": "uni","src": "foreign","u": "https://financialaid.dartmouth.edu/apply-aid/international-students","note": "Need-blind untuk mahasiswa internasional sejak angkatan 2026.","f": "all","part": 0},{"n": "Yale College Financial Aid (need-blind internasional)","p": "Yale University","c": "Amerika Serikat","cov": "100% kebutuhan finansial tanpa pinjaman","d": "2027-01-02","ds": "≈ 2 Jan 2027 (Regular; Single-Choice Early Action 1 Nov 2026)","s": "est","t": "uni","src": "foreign","u": "https://finaid.yale.edu/","note": "Tanggal Regular mengikuti pola siklus sebelumnya.","f": "all","part": 0},{"n": "MIT Financial Aid (need-blind internasional)","p": "Massachusetts Institute of Technology","c": "Amerika Serikat","cov": "100% kebutuhan finansial tanpa pinjaman","d": "2027-01-05","ds": "5 Jan 2027 (Regular; Early Action 1 Nov 2026)","s": "resmi","t": "uni","src": "foreign","f": "stem","u": "https://sfs.mit.edu/","note": "Mayoritas program sains & teknik. Wajib skor SAT/ACT.","part": 0},{"n": "Amherst College Financial Aid (need-blind internasional)","p": "Amherst College","c": "Amerika Serikat","cov": "100% kebutuhan finansial tanpa pinjaman","d": "2027-01-05","ds": "5 Jan 2027 (Regular; Early Decision 1 Nov 2026)","s": "resmi","t": "uni","src": "foreign","u": "https://www.amherst.edu/admission/financial_aid","note": "Liberal arts college; kelas kecil.","f": "all","part": 0},{"n": "Bowdoin College Financial Aid (need-blind internasional)","p": "Bowdoin College","c": "Amerika Serikat","cov": "100% kebutuhan finansial tanpa pinjaman","d": "2027-01-05","ds": "5 Jan 2027 (Regular & ED II; ED I 15 Nov 2026)","s": "resmi","t": "uni","src": "foreign","u": "https://www.bowdoin.edu/admissions/apply/international-students/","note": "Liberal arts college; need-blind dan full-need untuk pelamar internasional.","f": "all","part": 0},{"n": "Bantuan full-need (need-aware): Stanford, Columbia, Penn, Duke, dll.","p": "Universitas swasta AS","c": "Amerika Serikat","cov": "100% kebutuhan finansial bagi yang diterima","d": "2027-01-05","ds": "≈ 1–5 Jan 2027 (Regular; per kampus)","s": "est","t": "uni","src": "foreign","u": "https://educationusa.state.gov/your-5-steps-us-study/finance-your-studies/undergraduate","note": "Kemampuan bayar ikut dipertimbangkan saat admisi, tetapi yang diterima dibiayai penuh sesuai kebutuhan. Konsultasi gratis di EducationUSA (AMINEF).","f": "all","part": 0},{"n": "NYU Abu Dhabi Financial Aid","p": "New York University Abu Dhabi","c": "Uni Emirat Arab","cov": "Sesuai kebutuhan: SPP, asrama, makan, tiket, asuransi","d": "2027-01-05","ds": "≈ 5 Jan 2027 (Regular; ED I 1 Nov 2026, CSS Profile 10 Nov)","s": "est","t": "uni","src": "foreign","u": "https://nyuad.nyu.edu/en/admissions/undergraduate/financial-support.html","note": "Memenuhi kebutuhan finansial penuh mahasiswa yang diterima. Tenggat CSS Profile: ED I 10 Nov, ED II 10 Jan, Regular 1 Feb.","f": "all","part": 0},{"n": "Russian Government Quota Scholarship (Bachelor)","p": "Pemerintah Federasi Rusia via Rossotrudnichestvo","c": "Rusia","cov": "SPP penuh + tunjangan bulanan + tahun persiapan bahasa","d": "2027-01-15","ds": "≈ 15 Jan 2027 (non-CIS; portal belum resmi dibuka)","s": "est","t": "gov","src": "foreign","part": 1,"u": "https://education-in-russia.com/","note": "Mayoritas program berbahasa Rusia. Asrama bersubsidi (bayar murah); tiket, visa, asuransi tidak ditanggung.","f": "all"},{"n": "Stipendium Hungaricum (Bachelor) 2027/28","p": "Pemerintah Hungaria (Tempus Public Foundation)","c": "Hungaria","cov": "SPP, tunjangan bulanan, kontribusi akomodasi, asuransi","d": "2027-01-15","ds": "≈ 15 Jan 2027 (2026: 15 Jan, 14.00 CET)","s": "est","t": "gov","src": "foreign","u": "https://stipendiumhungaricum.hu/","note": "Indonesia negara mitra; S1 terbuka untuk WNI. Usia minimal 18 tahun per 31 Agustus. Tiket tidak ditanggung.","f": "all","part": 0},{"n": "ASEAN Undergraduate Scholarship – NUS","p": "National University of Singapore","c": "Singapura","cov": "SPP (setelah Tuition Grant) + S$5.800 hidup + S$3.000 akomodasi/tahun","d": "2027-02-05","ds": "≈ awal Feb 2027 (ikut periode admisi kualifikasi internasional)","s": "est","t": "uni","src": "foreign","u": "https://nus.edu.sg/oam/scholarships/scholarships-for-freshmen-international-students/asean-undergraduate-scholarship","note": "Untuk WNI lulusan SMA (Ijazah/UN). Tuition Grant mewajibkan ikatan kerja 3 tahun di Singapura.","f": "all","part": 0},{"n": "Chinese Government Scholarship – Undergraduate (via Kedubes RRT)","p": "China Scholarship Council (CSC)","c": "Tiongkok","cov": "SPP, asrama, tunjangan bulanan, asuransi","d": "2027-02-08","ds": "≈ awal Feb 2027 (2026: 8 Feb)","s": "est","t": "gov","src": "foreign","u": "https://id.china-embassy.gov.cn/","note": "Wajib skor tes CSCA untuk S1 (jadwal tes ≈ Des–Jan). Tiket internasional tidak ditanggung. Daftar via campuschina.org.","f": "all","part": 0},{"n": "Brunei Darussalam Government Scholarship 2027/28","p": "Pemerintah Brunei (Kementerian Luar Negeri)","c": "Brunei","cov": "SPP, asrama, tunjangan, buku, tiket","d": "2027-02-15","ds": "≈ pertengahan Feb 2027 (2026: 15 Feb)","s": "est","t": "gov","src": "foreign","u": "https://www.mfa.gov.bn/","note": "Studi di UBD, UTB, UNISSA, atau KUPU SB. Berkas lewat Kedubes Brunei di Jakarta.","f": "all","part": 0},{"n": "Türkiye Bursları (Lisans/S1)","p": "YTB, Pemerintah Turki","c": "Turki","cov": "SPP, asrama, tunjangan bulanan, asuransi, tiket, kursus bahasa Turki 1 tahun","d": "2027-02-20","ds": "≈ 10 Jan – 20 Feb 2027","s": "est","t": "gov","src": "foreign","u": "https://www.turkiyeburslari.gov.tr/","note": "Usia maksimal 21 untuk S1. Nilai rapor minimal 70% (kedokteran 90%).","f": "all","part": 0},{"n": "ASEAN Undergraduate Scholarship – NTU","p": "Nanyang Technological University","c": "Singapura","cov": "SPP (setelah Tuition Grant) + S$5.800 hidup + S$3.000 akomodasi/tahun","d": "2027-03-19","ds": "19 Mar 2027 (aplikasi beasiswa, kualifikasi internasional)","s": "resmi","t": "uni","src": "foreign","u": "https://www.ntu.edu.sg/admissions/undergraduate/scholarships/scholarship-listings/detail/asean-undergraduate-scholarship","note": "Formulir foto & appraisal paling lambat 26 Mar 2027. Ikatan kerja 3 tahun dari Tuition Grant.","f": "all","part": 0},{"n": "ASEAN Undergraduate Scholarship – SMU","p": "Singapore Management University","c": "Singapura","cov": "SPP (setelah Tuition Grant) + S$5.800 hidup + S$3.000 akomodasi/tahun","d": "2027-03-19","ds": "≈ Mar 2027 (diajukan bersamaan dengan admisi)","s": "est","t": "uni","src": "foreign","u": "https://admissions.smu.edu.sg/financial-matters/financial-aid/asean-undergraduate-scholarship","note": "Bisnis, ekonomi, hukum, IT, ilmu sosial. Ikatan kerja 3 tahun dari Tuition Grant.","f": "all","part": 0},{"n": "Taiwan Scholarship (MOE) – S1","p": "Kementerian Pendidikan Taiwan via TETO Jakarta","c": "Taiwan","cov": "SPP (maks NTD 40.000/semester) + NTD 15.000/bulan","d": "2027-03-31","ds": "≈ 1 Feb – 31 Mar 2027 (2026: 1 Feb–31 Mar)","s": "est","t": "gov","src": "foreign","u": "https://taiwanscholarship.moe.gov.tw/web/index.aspx","note": "Tetap harus lolos admisi kampus Taiwan. Info lokal: studiditaiwan.blogspot.com. Tiket tidak ditanggung.","f": "all","part": 0},{"n": "Romanian Government Scholarship (Bachelor)","p": "Kementerian Luar Negeri Rumania","c": "Rumania","cov": "SPP, asrama, tunjangan €65/bulan, tahun bahasa Rumania","d": "2027-03-31","ds": "≈ 16 Feb – 31 Mar 2027 (2026: 16 Feb–31 Mar)","s": "est","t": "gov","src": "foreign","part": 1,"u": "https://scholarships.studyinromania.gov.ro/","note": "Non-UE. Kedokteran, kedokteran gigi, farmasi tidak termasuk. Tunjangan kecil; tiket tidak ditanggung.","f": "all"},{"n": "MEXT Undergraduate Scholarship (jalur Kedubes, intake 2028)","p": "MEXT Jepang via Kedubes Jepang di Jakarta","c": "Jepang","cov": "SPP, tunjangan ±¥117.000/bulan, tiket PP, tahun persiapan bahasa","d": "2027-05-15","ds": "≈ Apr – Mei 2027 (siklus intake 2027 sudah tutup)","s": "est","t": "gov","src": "foreign","u": "https://www.id.emb-japan.go.jp/","note": "Usia 17–24. Seleksi berkas, ujian tertulis (matematika, IPA/IPS, bahasa Inggris & Jepang), wawancara.","f": "all","part": 0},{"n": "Beasiswa Al-Azhar Kairo (kuota via Kemenag)","p": "Universitas Al-Azhar, seleksi oleh Kementerian Agama RI","c": "Mesir","cov": "SPP gratis + asrama & tunjangan (kuota beasiswa terbatas)","d": "2027-05-09","ds": "≈ Apr – Mei 2027 (2025: s.d. 9 Mei)","s": "est","t": "uni","src": "foreign","part": 1,"u": "https://pendis.kemenag.go.id/","note": "Lolos seleksi Kemenag tidak otomatis mendapat beasiswa penuh; kuota asrama dan tunjangan terbatas.","f": "all"},{"n": "World in Serbia Scholarship (S1)","p": "Pemerintah Serbia (Kementerian Pendidikan)","c": "Serbia","cov": "SPP, asrama & makan, tunjangan RSD 18.000/bulan, asuransi, kursus bahasa Serbia","d": "2027-06-01","ds": "≈ 1 Jun 2027 untuk 2028/29 (call 2026 tutup 1 Jun 2026)","s": "est","t": "gov","src": "foreign","part": 1,"u": "https://prosveta.gov.rs/","note": "Untuk negara anggota Gerakan Non-Blok, termasuk Indonesia. Usia di bawah 21. Wajib nominasi otoritas pemerintah. Tiket tidak ditanggung.","f": "all"},{"n": "Islamic University of Madinah Scholarship (S1)","p": "Islamic University of Madinah via Study in Saudi","c": "Arab Saudi","cov": "SPP, asrama, tunjangan ±SR 840/bulan, tiket PP tahunan, kesehatan","d": "2027-06-15","ds": "≈ Mei – 15 Jun 2027 (mengikuti kalender Hijriah)","s": "est","t": "uni","src": "foreign","u": "https://iu.edu.sa/en-us","note": "Khusus laki-laki Muslim, usia 17–25. Pendaftaran lewat portal studyinsaudi.moe.gov.sa.","f": "all","part": 0},{"n": "Beasiswa Indonesia Maju (BIM) – S1 Luar Negeri","p": "Pemerintah RI (Puspresnas / Pusat Layanan Pembiayaan Pendidikan)","c": "Berbagai negara","cov": "SPP, biaya hidup, tiket, visa, asuransi, buku","d": "2027-06-30","ds": "≈ Mei – Jun 2027 (status siklus 2026 belum terkonfirmasi)","s": "est","t": "gov","src": "id","u": "https://beasiswa.kemdikbud.go.id/","note": "Wajib LoA unconditional dari kampus mitra, SAT ≥1.200, IELTS ≥5,5. Keberlanjutan program di bawah kementerian baru perlu dicek.","f": "all","part": 0},{"n": "Global Korea Scholarship – Undergraduate (GKS-U 2028)","p": "NIIED, Kementerian Pendidikan Korea","c": "Korea Selatan","cov": "SPP, tunjangan ±KRW 1 juta/bulan, tiket PP, bahasa Korea 1 tahun, asuransi","d": "2027-09-30","ds": "≈ Sep – Okt 2027 (GKS-U 2027 tutup 30 Sep 2026)","s": "est","t": "gov","src": "foreign","u": "https://www.studyinkorea.go.kr/","note": "Usia di bawah 25. Embassy track (Kedubes Korea Jakarta, 3 pilihan kampus) atau university track (1 kampus).","f": "all","part": 0},{"n": "Beasiswa Study in Saudi (KSU, KAU, Umm Al-Qura, dll.)","p": "Kementerian Pendidikan Arab Saudi & universitas negeri","c": "Arab Saudi","cov": "SPP, asrama, tunjangan bulanan, tiket, kesehatan","d": "2027-03-31","ds": "Bergulir per kampus; umumnya Jan – Jun 2027","s": "roll","t": "gov","src": "foreign","u": "https://studyinsaudi.moe.gov.sa/","note": "Satu portal untuk banyak universitas negeri Saudi. Banyak program S1 berbahasa Arab.","f": "all","part": 0},{"n": "Qatar University International Scholarship (S1)","p": "Qatar University","c": "Qatar","cov": "SPP, asrama, tiket PP tahunan (tanpa tunjangan tetap)","d": "2027-02-28","ds": "Ikut periode admisi; siklus Fall 2027 belum terkonfirmasi","s": "roll","t": "uni","src": "foreign","part": 1,"u": "https://www.qu.edu.qa/","note": "Bisa melalui nominasi kedutaan atau langsung. IELTS 5,5 dan SAT/ACT untuk program berbahasa Inggris.","f": "all"},{"n": "Beasiswa regional DSU Italia (Lazio DiSCo, ER.GO, EDISU, DSU Toscana, dll.)","p": "Lembaga Diritto allo Studio di tiap region","c": "Italia","cov": "Bebas SPP + hingga ±€6.800/tahun + asrama/voucher + makan","d": "2027-09-05","ds": "≈ Jul – Sep 2027 (per region)","s": "est","t": "gov","src": "foreign","part": 1,"u": "https://www.universitaly.it/","note": "Berbasis pendapatan keluarga (ISEE Parificato, diurus 1–2 bulan). Harus diterima di universitas negeri Italia dulu.","f": "all"}];
+const REG={"Uni Emirat Arab": "Timur Tengah & Afrika", "Rusia": "Eropa", "Kanada": "Amerika Utara", "Amerika Serikat": "Amerika Utara", "Hungaria": "Eropa", "Singapura": "Asia Timur & Tenggara", "Tiongkok": "Asia Timur & Tenggara", "Brunei": "Asia Timur & Tenggara", "Turki": "Timur Tengah & Afrika", "Taiwan": "Asia Timur & Tenggara", "Rumania": "Eropa", "Jepang": "Asia Timur & Tenggara", "Mesir": "Timur Tengah & Afrika", "Serbia": "Eropa", "Arab Saudi": "Timur Tengah & Afrika", "Berbagai negara": "Lintas negara", "Korea Selatan": "Asia Timur & Tenggara", "Qatar": "Timur Tengah & Afrika", "Italia": "Eropa"};
+D.forEach(r=>r.r=REG[r.c]||"Lintas negara");
+const today=(()=>{const t=new Date();t.setHours(0,0,0,0);return t})();
+const MONTHS=[];for(let i=0;i<12;i++){const d=new Date(2026,10+i,1);MONTHS.push({y:d.getFullYear(),m:d.getMonth(),l:d.toLocaleDateString('id-ID',{month:'short'})+" "+String(d.getFullYear()).slice(2)})}
+let sortKey="date",asc=true,monthSel=null,page=1,perPage=10;
+const $=s=>document.querySelector(s);
+const chipTxt={resmi:"Resmi",est:"Estimasi",roll:"Bergulir"};
+function esc(t){return t.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+function filtered(){
+  const q=$('#q').value.trim().toLowerCase(),st=$('#fStatus').value,ty=$('#fType').value,sr=$('#fSrc').value,rg=$('#fReg').value;
+  return D.filter(r=>(!q||(r.n+r.p+r.c+r.cov).toLowerCase().includes(q))&&(!st||r.s===st)&&(!ty||r.t===ty)&&(!sr||r.src===sr)&&(!rg||r.r===rg)&&(!monthSel||(()=>{const d=new Date(r.d);return d.getFullYear()===monthSel.y&&d.getMonth()===monthSel.m})()));
+}
+function render(){
+  const all=filtered().sort((a,b)=>{let v=sortKey==="date"?a.d.localeCompare(b.d):sortKey==="name"?a.n.localeCompare(b.n):sortKey==="neg"?a.c.localeCompare(b.c):a.p.localeCompare(b.p);return asc?v:-v});
+  const pages=Math.max(1,Math.ceil(all.length/perPage));
+  if(page>pages)page=pages;
+  const start=(page-1)*perPage, rows=all.slice(start,start+perPage);
+  $('#rows').innerHTML=rows.map(r=>{
+    const days=Math.round((new Date(r.d)-today)/864e5);
+    const dTxt=r.s==="roll"?"":days<0?`<div class="days past">sudah lewat</div>`:`<div class="days ${days<=45?'soon':''}">${days===0?'hari ini':days+' hari lagi'}</div>`;
+    return `<tr>
+      <td class="c-name"><div class="name">${esc(r.n)}</div><div class="note">${esc(r.note)}</div>
+        <div class="tags"><span class="chip ${r.s}">${chipTxt[r.s]}</span>${r.src==="id"?'<span class="chip id">Dana Indonesia</span>':''}${r.part?'<span class="chip part">Cakupan tidak penuh</span>':''}${r.f==="stem"?'<span class="chip plain">STEM saja</span>':''}</div></td>
+      <td class="c-prov">${esc(r.p)}</td>
+      <td class="c-neg">${esc(r.c)}</td>
+      <td class="c-cov">${esc(r.cov)}</td>
+      <td class="c-dl"><div class="dl">${esc(r.ds.split(' (')[0])}</div>${r.ds.includes('(')?`<div class="dsub">(${esc(r.ds.split(' (').slice(1).join(' ('))}</div>`:''}${dTxt}</td>
+      <td class="c-url"><a href="${r.u}" target="_blank" rel="noopener">${esc(r.u.replace(/^https?:\/\/(www\.)?/,'').split('/')[0])}</a></td>
+    </tr>`}).join('')||'<tr><td colspan="6">Tidak ada beasiswa yang cocok dengan saringan ini.</td></tr>';
+  $('#count').textContent=all.length?`${all.length} dari ${D.length} beasiswa`:`0 dari ${D.length} beasiswa`;
+  let nums=[];for(let i=1;i<=pages;i++)nums.push(`<button data-p="${i}"${i===page?' aria-current="page"':''} aria-label="Halaman ${i}">${i}</button>`);
+  $('#pager').innerHTML=`<button data-p="${page-1}"${page<=1?' disabled':''} aria-label="Halaman sebelumnya">‹ Sebelumnya</button>${nums.join('')}<button data-p="${page+1}"${page>=pages?' disabled':''} aria-label="Halaman berikutnya">Berikutnya ›</button>
+    <label class="per" for="perSel">Per halaman <select id="perSel">${[10,20,50].map(n=>`<option${n===perPage?' selected':''}>${n}</option>`).join('')}</select></label>`;
+  $('#pager').querySelectorAll('button[data-p]').forEach(b=>b.onclick=()=>{page=+b.dataset.p;render();document.querySelector('.tbl').scrollIntoView({block:'start',behavior:'smooth'})});
+  $('#perSel').onchange=e=>{perPage=+e.target.value;page=1;render()};
+  document.querySelectorAll('th button').forEach(b=>{const k=b.dataset.sort;b.textContent=b.textContent.replace(/ [↑↓]$/,'')+(k===sortKey?(asc?' ↑':' ↓'):'')});
+}
+function strip(){
+  const counts=MONTHS.map(mo=>D.filter(r=>{const d=new Date(r.d);return r.s!=="roll"&&d.getFullYear()===mo.y&&d.getMonth()===mo.m}).length);
+  const max=Math.max(...counts,1);
+  $('#months').innerHTML=MONTHS.map((mo,i)=>`<button class="m" data-i="${i}" aria-pressed="${monthSel&&monthSel.y===mo.y&&monthSel.m===mo.m}"><div class="barbox"><div class="bar" style="height:${counts[i]?Math.max(8,counts[i]/max*100):3}%;opacity:${counts[i]?1:.25}"></div></div><span class="n">${counts[i]}</span><span class="lbl">${mo.l}</span></button>`).join('');
+  document.querySelectorAll('.m').forEach(b=>b.onclick=()=>{const mo=MONTHS[+b.dataset.i];monthSel=(monthSel&&monthSel.y===mo.y&&monthSel.m===mo.m)?null:mo;page=1;strip();render()});
+}
+['#q','#fStatus','#fType','#fSrc','#fReg'].forEach(s=>$(s).addEventListener('input',()=>{page=1;render()}));
+document.querySelectorAll('th button').forEach(b=>b.onclick=()=>{const k=b.dataset.sort;if(k===sortKey)asc=!asc;else{sortKey=k;asc=true}page=1;render()});
+strip();render();
+</script>
+
+</body>
+</html>

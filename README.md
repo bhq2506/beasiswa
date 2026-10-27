@@ -5,3 +5,7 @@ Daftar beasiswa PhD luar negeri (fully funded) untuk dosen dan tendik, dengan te
 Buka `index.html` di browser, atau aktifkan GitHub Pages (Settings → Pages → Deploy from branch `main`, folder `/`).
 
 Disusun 23 Oktober 2026, diperbarui 27 Oktober 2026. Tanggal berlabel "Estimasi" mengikuti pola siklus sebelumnya; periksa halaman resmi sebelum dipakai.
+
+## Beasiswa S1
+
+Daftar beasiswa S1 luar negeri fully funded untuk siswa SMA dan lulusan baru ada di folder [`s1/`](s1/) (tabel di `s1/README.md`, versi interaktif di `s1/index.html`).
