@@ -4,7 +4,7 @@ Daftar beasiswa PhD luar negeri (fully funded) untuk dosen dan tendik, dengan te
 
 Buka `index.html` di browser, atau aktifkan GitHub Pages (Settings → Pages → Deploy from branch `main`, folder `/`).
 
-Disusun 23 Oktober 2026, diperbarui 27 Oktober 2026. Tanggal berlabel "Estimasi" mengikuti pola siklus sebelumnya; periksa halaman resmi sebelum dipakai.
+Disusun 23 Oktober 2026, diperbarui 31 Oktober 2026 (tambahan Fakultas Kedokteran & Kesehatan dan Fakultas Desain Kreatif & Bisnis Digital, termasuk fellowship dokter spesialis dan skema parsial yang ditandai). Tanggal berlabel "Estimasi" mengikuti pola siklus sebelumnya; periksa halaman resmi sebelum dipakai.
 
 ## Beasiswa S1
 

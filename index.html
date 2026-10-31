@@ -99,9 +99,9 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 
 <div class="wrap">
   <header>
-    <div class="eyebrow">Untuk dosen &amp; tendik ITS · fully funded · disusun 23 Oktober 2026</div>
+    <div class="eyebrow">Untuk dosen &amp; tendik ITS · fully funded &amp; parsial (ditandai) · diperbarui 31 Oktober 2026</div>
     <h1>Peta Beasiswa PhD Luar Negeri 2026–2027</h1>
-    <p class="lede">Beasiswa S3 untuk STEM, bisnis, studi pembangunan, dan desain di Asia, Eropa (termasuk Rumania dan Rusia), Timur Tengah, Kanada, dan Oseania, dengan tenggat dari November 2026 sampai 2027. Siklus yang sudah tutup tidak dimasukkan; tanggal yang belum diumumkan diberi label estimasi berdasarkan pola tahun lalu.</p>
+    <p class="lede">Beasiswa S3 serta pendidikan spesialis dan fellowship klinis untuk STEM, Fakultas Kedokteran dan Kesehatan (kedokteran, teknik biomedik, teknologi kedokteran), serta Fakultas Desain Kreatif dan Bisnis Digital (manajemen, bisnis digital, studi pembangunan, sains komunikasi, desain) di Asia, Eropa (termasuk Rumania dan Rusia), Timur Tengah, Kanada, dan Oseania, dengan tenggat dari November 2026 sampai 2027. Siklus yang sudah tutup tidak dimasukkan; tanggal yang belum diumumkan diberi label estimasi berdasarkan pola tahun lalu.</p>
   </header>
 
   <div class="legend">
@@ -123,7 +123,13 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
       <option value="">Semua status</option><option value="resmi">Resmi</option><option value="est">Estimasi</option><option value="roll">Bergulir</option>
     </select>
     <select id="fField" aria-label="Bidang">
-      <option value="">Semua bidang</option><option value="all">Terbuka semua bidang</option><option value="stem">Khusus STEM/teknik</option>
+      <option value="">Semua bidang</option><option value="all">Terbuka semua bidang</option><option value="stem">Khusus STEM/teknik</option><option value="med">Khusus kedokteran/kesehatan</option><option value="biz">Khusus bisnis/desain/pembangunan</option>
+    </select>
+    <select id="fFak" aria-label="Relevan untuk fakultas">
+      <option value="">Semua fakultas</option><option value="fkk">Kedokteran &amp; Kesehatan</option><option value="fdkbd">Desain Kreatif &amp; Bisnis Digital</option>
+    </select>
+    <select id="fLv" aria-label="Jenjang">
+      <option value="">Semua jenjang</option><option value="s3">S3 / PhD</option><option value="sp">Spesialis &amp; fellowship klinis</option>
     </select>
     <select id="fReg" aria-label="Kawasan">
       <option value="">Semua kawasan</option><option>Asia Timur & Tenggara</option><option>Eropa</option><option>Timur Tengah & Turki</option><option>Amerika Utara</option><option>Oseania</option><option>Lintas negara</option>
@@ -151,6 +157,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
   <section class="method">
     <h2>Catatan penggunaan</h2>
     <p>Batas usia paling sering menggugurkan dosen senior: GKS dan CSC di bawah 40, MEXT 34, Türkiye Bursları dan Eiffel 35, Swiss (riset) lahir setelah 31 Des 1991. Saring kandidat dengan ini sebelum melihat tenggat.</p>
+    <p>Fellowship klinis di luar negeri umumnya butuh izin praktik sementara dari negara tujuan, sering dengan syarat bahasa lokal. Skema Medical Training Initiative Inggris sudah tidak menerima peserta baru sejak 31 Maret 2026.</p>
     <p>Hampir semua skema PhD Eropa, Inggris, Swiss, Selandia Baru dan RTP Australia mensyaratkan calon pembimbing sudah setuju sebelum mendaftar. Kontak pembimbing perlu dimulai 3–6 bulan sebelum tenggat.</p>
     <p>Tanggal "Estimasi" dapat bergeser. Periksa halaman resmi sebelum membuat jadwal internal.</p>
   </section>
@@ -169,8 +176,8 @@ const D=[
  {n:"France Excellence Eiffel (PhD)",p:"Kementerian Luar Negeri Prancis / Campus France",c:"Prancis",d:"2027-01-06",ds:"6 Jan 2027 (kampus → Campus France); tenggat internal kampus lebih awal",s:"resmi",f:"all",src:"foreign",u:"https://www.campusfrance.org/en/eiffel-scholarship-program-of-excellence",part:1,note:"Diajukan oleh kampus Prancis, bukan pribadi. Usia maks 35. SPP tidak ditanggung (biaya doktoral di Prancis rendah)."},
  {n:"Stipendium Hungaricum (Doctoral) 2027/28",p:"Pemerintah Hungaria (Tempus Public Foundation)",c:"Hungaria",d:"2027-01-15",ds:"≈ 15 Jan 2027 (call belum terbit)",s:"est",f:"all",src:"foreign",u:"https://stipendiumhungaricum.hu/",note:"Butuh nominasi dari mitra pengirim di Indonesia; cek tenggat nominasinya juga."},
  {n:"IsDB Scholarship (PhD, teknologi tinggi)",p:"Islamic Development Bank",c:"Berbagai negara",d:"2027-01-31",ds:"≈ 31 Jan 2027 (pola 2026)",s:"est",f:"stem",src:"foreign",u:"https://www.isdb.org/scholarships",note:"Indonesia negara anggota. Perlu endorsement institusi."},
- {n:"Fulbright Doctoral Degree (PhD) Scholarship",p:"AMINEF / Pemerintah AS",c:"Amerika Serikat",d:"2027-02-15",ds:"≈ pertengahan Feb 2027 (2026: 18 Feb)",s:"est",f:"all",src:"foreign",u:"https://www.aminef.or.id/grants-for-indonesians/fulbright-programs/scholarship/fulbright-doctoral-degree-phd-scholarship/",note:"Prioritas dosen. Wajib kembali ke posisi akademik; tidak sedang menerima beasiswa lain."},
- {n:"Türkiye Bursları (Doktora)",p:"YTB, Pemerintah Turki",c:"Turki",d:"2027-02-20",ds:"≈ 10 Jan – 20 Feb 2027",s:"est",f:"all",src:"foreign",u:"https://www.turkiyeburslari.gov.tr/",note:"Usia di bawah 35 untuk PhD. Termasuk 1 tahun kursus bahasa Turki."},
+ {n:"Fulbright Doctoral Degree (PhD) Scholarship",p:"AMINEF / Pemerintah AS",c:"Amerika Serikat",d:"2027-02-15",ds:"≈ pertengahan Feb 2027 (2026: 18 Feb)",s:"est",f:"all",src:"foreign",u:"https://www.aminef.or.id/grants-for-indonesians/fulbright-programs/scholarship/fulbright-doctoral-degree-phd-scholarship/",note:"Prioritas dosen. Tidak untuk kedokteran klinis (kontak pasien); riset biomedis boleh. Wajib kembali ke posisi akademik; tidak sedang menerima beasiswa lain."},
+ {n:"Türkiye Bursları (Doktora)",p:"YTB, Pemerintah Turki",c:"Turki",d:"2027-02-20",ds:"≈ 10 Jan – 20 Feb 2027",s:"est",f:"all",src:"foreign",u:"https://www.turkiyeburslari.gov.tr/",note:"Usia di bawah 35 untuk PhD. Jenjang S2/S3 tidak membuka ilmu kesehatan. Termasuk 1 tahun kursus bahasa Turki."},
  {n:"LPDP Tahap 1 2027 (Doktor Luar Negeri)",p:"LPDP, Kementerian Keuangan RI",c:"Berbagai negara",d:"2027-02-23",ds:"≈ akhir Jan – akhir Feb 2027 (2026: 22 Jan–23 Feb)",s:"est",f:"all",src:"id",u:"https://lpdp.kemenkeu.go.id/",note:"Usia maks 40 untuk S3. Fokus STEM industri strategis; jalur SHARE untuk sosial-ekonomi."},
  {n:"Global Korea Scholarship – Graduate (Embassy Track)",p:"NIIED, Kementerian Pendidikan Korea",c:"Korea Selatan",d:"2027-02-25",ds:"≈ pertengahan–akhir Feb 2027 (2026: 12–25 Feb)",s:"est",f:"all",src:"foreign",u:"https://www.studyinkorea.go.kr/",note:"Usia di bawah 40. Kuota Indonesia 2026: 33 embassy track, 71 university track."},
  {n:"Chinese Government Scholarship (Type A, via Kedubes RRT)",p:"China Scholarship Council (CSC)",c:"Tiongkok",d:"2027-03-31",ds:"≈ Jan – Apr 2027 (beda per jalur)",s:"est",f:"all",src:"foreign",u:"https://www.campuschina.org/",note:"Usia di bawah 40 untuk PhD. Kode agensi Indonesia 3602. LoA pra-penerimaan memperkuat aplikasi."},
@@ -194,19 +201,38 @@ const D=[
  {n:"Paket pendanaan PhD universitas Kanada (mis. U of Toronto, UBC)",p:"Universitas di Kanada (dana departemen & supervisor)",c:"Kanada",d:"2026-12-20",ds:"Bergulir; mayoritas tenggat Des 2026 – Jan 2027 untuk masuk Sep 2027",s:"roll",f:"all",src:"foreign",u:"https://www.educanada.ca/scholarships-bourses/index.aspx?lang=eng",note:"Bukan beasiswa terpusat: banyak program PhD menjamin paket minimum (mis. UofT ≥ CAD 40.000/tahun termasuk SPP, 4 tahun). Cek per departemen."},
  {n:"Posisi PhD bergaji: Belanda, Norwegia, Swedia, Denmark, Finlandia",p:"Universitas & lembaga riset (kontrak kerja)",c:"Eropa",d:"2027-12-28",ds:"Bergulir sepanjang tahun (per lowongan)",s:"roll",f:"all",src:"foreign",u:"https://euraxess.ec.europa.eu/jobs/search",note:"PhD berstatus pegawai dengan gaji dan jaminan sosial, tanpa SPP. Lamar lowongan proyek; tersedia juga di AcademicTransfer (NL) dan portal karier tiap kampus."},
  {n:"Sekolah doktoral Polandia",p:"Universitas di Polandia (stipendium doktoral nasional)",c:"Polandia",d:"2027-06-30",ds:"Bergulir; mayoritas rekrutmen Mei – Sep 2027",s:"roll",f:"all",src:"foreign",part:1,u:"https://go-poland.pl/",note:"Program doktoral bebas SPP dengan stipendium wajib; nilai stipendium cukup untuk hidup sederhana, tiket & asuransi tidak ditanggung."},
+ {n:"Beasiswa Fellowship Dokter Spesialis (luar negeri)",p:"LPDP bersama Kementerian Kesehatan RI",c:"Berbagai negara",d:"2027-01-12",ds:"≈ 1–12 Jan 2027 (2026: tiga gelombang, Jan, Mar, Mei)",s:"est",f:"med",src:"id",lv:"sp",fk:["fkk"],u:"https://lpdp.kemenkeu.go.id/en/beasiswa/targeted/beasiswa-fellowship-dokter-spesialis-2026/",note:"Untuk dokter spesialis dengan STR & SIP aktif; luar negeri 3–24 bulan di 16 negara tujuan. Wajib LoA penyelenggara. Biaya program, uang hidup, visa, asuransi ditanggung."},
+ {n:"ISN Fellowship Program (nefrologi)",p:"International Society of Nephrology",c:"Berbagai negara",d:"2027-10-16",ds:"≈ Jul – Okt 2027 (2026: 1 Jul – 16 Okt)",s:"est",f:"med",src:"foreign",lv:"sp",fk:["fkk"],part:1,u:"https://fellowship.theisn.org/prog/isn_fellowship",note:"Untuk dokter dan nefrolog muda dari negara berpenghasilan rendah–menengah. Pelatihan disusun sesuai kebutuhan negara asal."},
+ {n:"AO Trauma Short-term Fellowship",p:"AO Foundation",c:"Berbagai negara",d:"2027-04-30",ds:"≈ musim semi 2027 (untuk fellowship 2028)",s:"est",f:"med",src:"foreign",lv:"sp",fk:["fkk"],part:1,u:"https://www.aofoundation.org/trauma/education/fellowships",note:"Bedah ortopedi trauma, 6–12 minggu. Anggota AO Trauma, usia di bawah 45. Stipendium ±USD 550/minggu (disesuaikan negara); tiket & asuransi sendiri."},
+ {n:"ESMO Fellowships (klinis & riset onkologi)",p:"European Society for Medical Oncology",c:"Eropa",d:"2027-05-03",ds:"≈ awal Mei 2027 (2026: 3 Mei)",s:"est",f:"med",src:"foreign",lv:"sp",fk:["fkk"],part:1,u:"https://www.esmo.org/career-development/oncology-fellowships/fellowship-offers",note:"Fellowship di pusat kanker mitra ESMO. Kelayakan pelamar dari Asia dan nilai hibah perlu dicek per jenis fellowship."},
+ {n:"OIST PhD Program",p:"Okinawa Institute of Science and Technology",c:"Jepang",d:"2026-11-15",ds:"15 Nov 2026, 23:59 JST",s:"resmi",f:"stem",src:"foreign",lv:"s3",fk:["fkk"],u:"https://www.oist.jp/admissions/phd-program/apply-phd",note:"PhD 5 tahun berbahasa Inggris, termasuk neurosains dan biologi molekuler. Asisten riset ±JPY 2,6–3,6 juta/tahun yang juga menutup SPP. Bisa daftar dengan S1."},
+ {n:"Taiwan International Graduate Program (TIGP)",p:"Academia Sinica bersama universitas mitra",c:"Taiwan",d:"2027-02-01",ds:"≈ 1 Nov 2026 – 1 Feb 2027",s:"est",f:"stem",src:"foreign",lv:"s3",fk:["fkk"],part:1,u:"https://tigp.apps.sinica.edu.tw/",note:"PhD sains termasuk program biomedis. Stipendium TWD 40.000/bulan dijamin tahun pertama; tahun berikutnya bergantung pembimbing."},
+ {n:"INSEAD PhD in Management",p:"INSEAD (Fontainebleau & Singapura)",c:"Prancis",d:"2027-01-04",ds:"4 Jan 2027 (disarankan pertengahan Des 2026)",s:"resmi",f:"biz",src:"foreign",lv:"s3",fk:["fdkbd"],u:"https://www.insead.edu/phd",note:"Didanai penuh 5 tahun: bebas SPP, stipendium, dana riset, asuransi. Spesialisasi termasuk Technology & Operations Management, Strategy, Marketing."},
+ {n:"HEC Paris PhD Program",p:"HEC Paris",c:"Prancis",d:"2027-01-04",ds:"Putaran I 4 Jan 2027; putaran II 20 Apr 2027",s:"resmi",f:"biz",src:"foreign",lv:"s3",fk:["fdkbd"],u:"https://www.hec.edu/en/doctoral-program/admissions",note:"Program berbahasa Inggris dengan beasiswa penuh menurut iklan program. Delapan bidang, termasuk Information Systems & Operations Management."},
+ {n:"UNU-MERIT PhD Fellowship",p:"United Nations University & Maastricht University",c:"Belanda",d:"2027-02-15",ds:"15 Feb 2027",s:"resmi",f:"biz",src:"foreign",lv:"s3",fk:["fdkbd"],u:"https://unu.edu/merit/doctorate-degree/full-time-phd-programme",note:"Ekonomi inovasi, tata kelola, dan pembangunan berkelanjutan. Hingga 10 fellowship: bebas SPP, €1.650/bulan, dana riset €3.500. Batas usia indikatif 32."},
+ {n:"AHRC Doctoral Landscape Awards (seni, desain, media)",p:"UKRI – Arts and Humanities Research Council, via universitas Inggris",c:"Inggris",d:"2026-12-14",ds:"Beda per universitas; mis. Sheffield 14 Des 2026 (studi) & 19 Feb 2027 (dana)",s:"resmi",f:"biz",src:"foreign",lv:"s3",fk:["fdkbd"],u:"https://opportunitydesk.org/2026/10/01/ahrc-doctoral-landscape-award-2027-2028/",note:"SPP + stipendium UKRI (£21.805 pada 2026/27), 3,5 tahun. Kuota pelamar internasional kecil (mis. 1 dari 4 di Sheffield)."},
+ {n:"PhD in Design – Politecnico di Milano",p:"Politecnico di Milano",c:"Italia",d:"2027-09-18",ds:"≈ Jul – Sep 2027 (2026: 30 Jul – 18 Sep)",s:"est",f:"biz",src:"foreign",lv:"s3",fk:["fdkbd"],u:"https://phd.design.polimi.it/admission/",note:"Salah satu sekolah doktoral desain terbesar di Eropa; ada juga PhD Architectural, Urban & Interior Design. Jumlah kursi berbeasiswa diumumkan di call."},
+ {n:"DAAD EPOS (program terkait pembangunan)",p:"DAAD",c:"Jerman",d:"2027-08-31",ds:"≈ Jun – Okt 2027 (beda per program)",s:"est",f:"all",src:"foreign",lv:"s3",fk:["fkk","fdkbd"],u:"https://www.daad.de/en/studying-in-germany/scholarships/daad-scholarships/epos/",note:"Mayoritas S2; jalur doktor terbatas. Bidang termasuk kesehatan masyarakat, kebijakan publik, ekonomi pembangunan. Wajib 2 tahun pengalaman kerja. €1.300/bulan untuk doktor."},
+ {n:"Assistantship PhD universitas AS (komunikasi, desain, bisnis)",p:"Universitas di Amerika Serikat (mis. Communication, Univ. of Washington)",c:"Amerika Serikat",d:"2026-12-01",ds:"Bergulir; umumnya 1–15 Des 2026 untuk masuk Agt/Sep 2027",s:"roll",f:"all",src:"foreign",lv:"s3",fk:["fdkbd"],u:"https://com.uw.edu/ma-phd/ma-phd-frequently-asked-questions",note:"Mayoritas PhD di AS didanai lewat asisten mengajar/riset (bebas SPP + gaji), juga untuk mahasiswa internasional. Bisa dikombinasikan dengan Fulbright."},
  {n:"Marie Skłodowska-Curie Doctoral Networks",p:"Uni Eropa (Horizon Europe)",c:"Eropa",d:"2027-12-31",ds:"Bergulir sepanjang tahun (per posisi)",s:"roll",f:"all",src:"foreign",u:"https://euraxess.ec.europa.eu/jobs/search",note:"Posisi PhD bergaji (kontrak kerja). Aturan mobilitas: belum tinggal >12 bulan di negara tuan rumah dalam 3 tahun terakhir."}
 ];
-const REG={"Swiss":"Eropa","Hong Kong":"Asia Timur & Tenggara","Singapura":"Asia Timur & Tenggara","Jepang":"Asia Timur & Tenggara","Inggris":"Eropa","Arab Saudi":"Timur Tengah & Turki","Prancis":"Eropa","Hungaria":"Eropa","Berbagai negara":"Lintas negara","Amerika Serikat":"Amerika Utara","Turki":"Timur Tengah & Turki","Korea Selatan":"Asia Timur & Tenggara","Tiongkok":"Asia Timur & Tenggara","Taiwan":"Asia Timur & Tenggara","Selandia Baru":"Oseania","Malaysia":"Asia Timur & Tenggara","Australia":"Oseania","Kemitraan PT DN–LN":"Lintas negara","Jerman":"Eropa","Eropa":"Eropa","Rusia":"Eropa","Uni Emirat Arab":"Timur Tengah & Turki","Qatar":"Timur Tengah & Turki","Austria":"Eropa","Rumania":"Eropa","Kanada":"Amerika Utara","Polandia":"Eropa"};
-D.forEach(r=>r.r=REG[r.c]||"Lintas negara");
-const today=new Date(2026,9,23);
+const REG={"Swiss":"Eropa","Hong Kong":"Asia Timur & Tenggara","Singapura":"Asia Timur & Tenggara","Jepang":"Asia Timur & Tenggara","Inggris":"Eropa","Arab Saudi":"Timur Tengah & Turki","Prancis":"Eropa","Hungaria":"Eropa","Berbagai negara":"Lintas negara","Amerika Serikat":"Amerika Utara","Turki":"Timur Tengah & Turki","Korea Selatan":"Asia Timur & Tenggara","Tiongkok":"Asia Timur & Tenggara","Taiwan":"Asia Timur & Tenggara","Selandia Baru":"Oseania","Malaysia":"Asia Timur & Tenggara","Australia":"Oseania","Kemitraan PT DN–LN":"Lintas negara","Jerman":"Eropa","Eropa":"Eropa","Rusia":"Eropa","Uni Emirat Arab":"Timur Tengah & Turki","Qatar":"Timur Tengah & Turki","Austria":"Eropa","Rumania":"Eropa","Kanada":"Amerika Utara","Polandia":"Eropa","Italia":"Eropa","Belanda":"Eropa"};
+const FK_FKK=["SINGA","KAUST","Khalifa"],FK_BIZ=["KFUPM"],FK_NOFKK=["Türkiye Bursları"];
+D.forEach(r=>{r.r=REG[r.c]||"Lintas negara";r.lv=r.lv||"s3";
+  if(!r.fk){r.fk=r.f==="all"?["fkk","fdkbd"]:r.f==="med"?["fkk"]:r.f==="biz"?["fdkbd"]:[];
+    if(FK_FKK.some(k=>r.n.includes(k)))r.fk.push("fkk");
+    if(FK_BIZ.some(k=>r.n.includes(k)))r.fk.push("fdkbd");
+    if(FK_NOFKK.some(k=>r.n.includes(k)))r.fk=r.fk.filter(x=>x!=="fkk");}});
+const today=(()=>{const t=new Date();return new Date(t.getFullYear(),t.getMonth(),t.getDate())})();
+const FL={stem:"STEM saja",med:"Kedokteran/kesehatan",biz:"Bisnis/desain/pembangunan"};
 const MONTHS=[];for(let i=0;i<12;i++){const d=new Date(2026,10+i,1);MONTHS.push({y:d.getFullYear(),m:d.getMonth(),l:d.toLocaleDateString('id-ID',{month:'short'})+" "+String(d.getFullYear()).slice(2)})}
 let sortKey="date",asc=true,monthSel=null,page=1,perPage=10;
 const $=s=>document.querySelector(s);
 const chipTxt={resmi:"Resmi",est:"Estimasi",roll:"Bergulir"};
 function esc(t){return t.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
 function filtered(){
-  const q=$('#q').value.trim().toLowerCase(),st=$('#fStatus').value,fi=$('#fField').value,sr=$('#fSrc').value,rg=$('#fReg').value;
-  return D.filter(r=>(!q||(r.n+r.p+r.c).toLowerCase().includes(q))&&(!st||r.s===st)&&(!fi||r.f===fi)&&(!sr||r.src===sr)&&(!rg||r.r===rg)&&(!monthSel||(()=>{const d=new Date(r.d);return d.getFullYear()===monthSel.y&&d.getMonth()===monthSel.m})()));
+  const q=$('#q').value.trim().toLowerCase(),st=$('#fStatus').value,fi=$('#fField').value,sr=$('#fSrc').value,rg=$('#fReg').value,fk=$('#fFak').value,lv=$('#fLv').value;
+  return D.filter(r=>(!q||(r.n+r.p+r.c).toLowerCase().includes(q))&&(!st||r.s===st)&&(!fi||r.f===fi)&&(!sr||r.src===sr)&&(!rg||r.r===rg)&&(!fk||r.fk.includes(fk))&&(!lv||r.lv===lv)&&(!monthSel||(()=>{const d=new Date(r.d);return d.getFullYear()===monthSel.y&&d.getMonth()===monthSel.m})()));
 }
 function render(){
   const all=filtered().sort((a,b)=>{let v=sortKey==="date"?a.d.localeCompare(b.d):sortKey==="name"?a.n.localeCompare(b.n):a.p.localeCompare(b.p);return asc?v:-v});
@@ -215,10 +241,10 @@ function render(){
   const start=(page-1)*perPage, rows=all.slice(start,start+perPage);
   $('#rows').innerHTML=rows.map(r=>{
     const days=Math.round((new Date(r.d)-today)/864e5);
-    const dTxt=r.s==="roll"?"":`<div class="days ${days<=45?'soon':''}">${days} hari lagi</div>`;
+    const dTxt=r.s==="roll"?"":days<0?`<div class="days">Sudah lewat</div>`:`<div class="days ${days<=45?'soon':''}">${days} hari lagi</div>`;
     return `<tr>
       <td class="c-name"><div class="name">${esc(r.n)}</div><div class="note">${esc(r.note)}</div>
-        <div class="tags"><span class="chip ${r.s}">${chipTxt[r.s]}</span>${r.src==="id"?'<span class="chip id">Dana Indonesia</span>':''}${r.part?'<span class="chip part">Cakupan tidak penuh</span>':''}<span class="chip plain">${esc(r.c)}</span>${r.f==="stem"?'<span class="chip plain">STEM saja</span>':''}</div></td>
+        <div class="tags"><span class="chip ${r.s}">${chipTxt[r.s]}</span>${r.src==="id"?'<span class="chip id">Dana Indonesia</span>':''}${r.part?'<span class="chip part">Cakupan tidak penuh</span>':''}<span class="chip plain">${esc(r.c)}</span>${r.lv==="sp"?'<span class="chip plain">Spesialis/fellowship</span>':''}${FL[r.f]?`<span class="chip plain">${FL[r.f]}</span>`:''}</div></td>
       <td class="c-prov">${esc(r.p)}</td>
       <td class="c-dl"><div class="dl">${esc(r.ds.split(' (')[0])}</div>${r.ds.includes('(')?`<div class="dsub">(${esc(r.ds.split(' (').slice(1).join(' ('))}</div>`:''}${dTxt}</td>
       <td class="c-url"><a href="${r.u}" target="_blank" rel="noopener">${esc(r.u.replace(/^https?:\/\/(www\.)?/,'').split('/')[0])}</a></td>
@@ -237,7 +263,7 @@ function strip(){
   $('#months').innerHTML=MONTHS.map((mo,i)=>`<button class="m" data-i="${i}" aria-pressed="${monthSel&&monthSel.y===mo.y&&monthSel.m===mo.m}"><div class="barbox"><div class="bar" style="height:${counts[i]?Math.max(8,counts[i]/max*100):3}%;opacity:${counts[i]?1:.25}"></div></div><span class="n">${counts[i]}</span><span class="lbl">${mo.l}</span></button>`).join('');
   document.querySelectorAll('.m').forEach(b=>b.onclick=()=>{const mo=MONTHS[+b.dataset.i];monthSel=(monthSel&&monthSel.y===mo.y&&monthSel.m===mo.m)?null:mo;page=1;strip();render()});
 }
-['#q','#fStatus','#fField','#fSrc','#fReg'].forEach(s=>$(s).addEventListener('input',()=>{page=1;render()}));
+['#q','#fStatus','#fField','#fSrc','#fReg','#fFak','#fLv'].forEach(s=>$(s).addEventListener('input',()=>{page=1;render()}));
 document.querySelectorAll('th button').forEach(b=>b.onclick=()=>{const k=b.dataset.sort;if(k===sortKey)asc=!asc;else{sortKey=k;asc=true}page=1;render()});
 strip();render();
 </script>
