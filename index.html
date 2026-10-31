@@ -41,7 +41,7 @@ h1{font-family:var(--f-display);font-weight:700;font-size:clamp(1.7rem,3.4vw,2.4
 /* month strip */
 .strip{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 14px 10px;overflow-x:auto}
 .strip h2{font-size:.8rem;margin:0 0 10px;color:var(--muted);font-weight:600;letter-spacing:.06em;text-transform:uppercase}
-.months{display:grid;grid-template-columns:repeat(12,minmax(54px,1fr));gap:6px;min-width:680px}
+.months{display:grid;grid-template-columns:repeat(14,minmax(52px,1fr));gap:6px;min-width:780px}
 .m{display:grid;gap:4px;justify-items:center;cursor:pointer;background:none;border:0;padding:4px 0;border-radius:6px;color:var(--fg);font:inherit}
 .m:hover,.m[aria-pressed="true"]{background:var(--accent-soft)}
 .m:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
@@ -76,6 +76,7 @@ td.c-url a{display:inline-block;max-width:100%;overflow-wrap:anywhere}
 .pager button:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
 .pager select{padding:6px 8px}
 .pager .per{margin-left:12px;font-size:.85rem;color:var(--muted);display:flex;align-items:center;gap:6px}
+.dsub.next{color:var(--accent);margin-top:4px}
 .dsub{font-size:.78rem;color:var(--muted);margin-top:3px}
 .days{font-size:.78rem;font-weight:600;margin-top:4px}
 .days.soon{color:var(--late)}
@@ -101,7 +102,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
   <header>
     <div class="eyebrow">Untuk dosen &amp; tendik ITS · fully funded &amp; parsial (ditandai) · diperbarui 31 Oktober 2026</div>
     <h1>Peta Beasiswa PhD Luar Negeri 2026–2027</h1>
-    <p class="lede">Beasiswa S3 serta pendidikan spesialis dan fellowship klinis untuk STEM, Fakultas Kedokteran dan Kesehatan (kedokteran, teknik biomedik, teknologi kedokteran), serta Fakultas Desain Kreatif dan Bisnis Digital (manajemen, bisnis digital, studi pembangunan, sains komunikasi, desain) di Asia, Eropa (termasuk Rumania dan Rusia), Timur Tengah, Kanada, dan Oseania, dengan tenggat dari November 2026 sampai 2027. Siklus yang sudah tutup tidak dimasukkan; tanggal yang belum diumumkan diberi label estimasi berdasarkan pola tahun lalu.</p>
+    <p class="lede">Beasiswa S3 serta pendidikan spesialis dan fellowship klinis untuk STEM, Fakultas Kedokteran dan Kesehatan (kedokteran, teknik biomedik, teknologi kedokteran), serta Fakultas Desain Kreatif dan Bisnis Digital (manajemen, bisnis digital, studi pembangunan, sains komunikasi, desain) di Asia, Eropa (termasuk Rumania dan Rusia), Timur Tengah, Kanada, dan Oseania, dengan tenggat dari November 2026 sampai Desember 2027. Siklus yang sudah tutup tidak dimasukkan; tanggal yang belum diumumkan diberi label estimasi berdasarkan pola tahun lalu.</p>
   </header>
 
   <div class="legend">
@@ -225,14 +226,22 @@ D.forEach(r=>{r.r=REG[r.c]||"Lintas negara";r.lv=r.lv||"s3";
     if(FK_NOFKK.some(k=>r.n.includes(k)))r.fk=r.fk.filter(x=>x!=="fkk");}});
 const today=(()=>{const t=new Date();return new Date(t.getFullYear(),t.getMonth(),t.getDate())})();
 const FL={stem:"STEM saja",med:"Kedokteran/kesehatan",biz:"Bisnis/desain/pembangunan"};
-const MONTHS=[];for(let i=0;i<12;i++){const d=new Date(2026,10+i,1);MONTHS.push({y:d.getFullYear(),m:d.getMonth(),l:d.toLocaleDateString('id-ID',{month:'short'})+" "+String(d.getFullYear()).slice(2)})}
+const MONTHS=[];for(let i=0;i<14;i++){const d=new Date(2026,10+i,1);MONTHS.push({y:d.getFullYear(),m:d.getMonth(),l:d.toLocaleDateString('id-ID',{month:'short'})+" "+String(d.getFullYear()).slice(2)})}
 let sortKey="date",asc=true,monthSel=null,page=1,perPage=10;
 const $=s=>document.querySelector(s);
 const chipTxt={resmi:"Resmi",est:"Estimasi",roll:"Bergulir"};
+function inMonth(ds,mo){const d=new Date(ds);return d.getUTCFullYear()===mo.y&&d.getUTCMonth()===mo.m}
+function fmt(ds){return new Date(ds).toLocaleDateString('id-ID',{day:'numeric',month:'short',year:'numeric',timeZone:'UTC'})}
+/* Siklus berikutnya: tenggat tahunan diulang +1 tahun selama masih <= 31 Des 2027 */
+const HORIZON=new Date(2027,11,31);
+D.forEach(r=>{if(r.s==="roll")return;const n=new Date(r.d);n.setFullYear(n.getFullYear()+1);
+  const iso=n.toISOString().slice(0,10);
+  if(n<=HORIZON)r.d2=iso;
+  if(new Date(r.d)<today&&r.d2){r.d=r.d2;r.ds="≈ "+fmt(r.d2)+" (siklus berikutnya, perkiraan)";r.s="est";r.d2=null;}});
 function esc(t){return t.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
 function filtered(){
   const q=$('#q').value.trim().toLowerCase(),st=$('#fStatus').value,fi=$('#fField').value,sr=$('#fSrc').value,rg=$('#fReg').value,fk=$('#fFak').value,lv=$('#fLv').value;
-  return D.filter(r=>(!q||(r.n+r.p+r.c).toLowerCase().includes(q))&&(!st||r.s===st)&&(!fi||r.f===fi)&&(!sr||r.src===sr)&&(!rg||r.r===rg)&&(!fk||r.fk.includes(fk))&&(!lv||r.lv===lv)&&(!monthSel||(()=>{const d=new Date(r.d);return d.getFullYear()===monthSel.y&&d.getMonth()===monthSel.m})()));
+  return D.filter(r=>(!q||(r.n+r.p+r.c).toLowerCase().includes(q))&&(!st||r.s===st)&&(!fi||r.f===fi)&&(!sr||r.src===sr)&&(!rg||r.r===rg)&&(!fk||r.fk.includes(fk))&&(!lv||r.lv===lv)&&(!monthSel||inMonth(r.d,monthSel)||(r.d2&&inMonth(r.d2,monthSel))));
 }
 function render(){
   const all=filtered().sort((a,b)=>{let v=sortKey==="date"?a.d.localeCompare(b.d):sortKey==="name"?a.n.localeCompare(b.n):a.p.localeCompare(b.p);return asc?v:-v});
@@ -246,7 +255,7 @@ function render(){
       <td class="c-name"><div class="name">${esc(r.n)}</div><div class="note">${esc(r.note)}</div>
         <div class="tags"><span class="chip ${r.s}">${chipTxt[r.s]}</span>${r.src==="id"?'<span class="chip id">Dana Indonesia</span>':''}${r.part?'<span class="chip part">Cakupan tidak penuh</span>':''}<span class="chip plain">${esc(r.c)}</span>${r.lv==="sp"?'<span class="chip plain">Spesialis/fellowship</span>':''}${FL[r.f]?`<span class="chip plain">${FL[r.f]}</span>`:''}</div></td>
       <td class="c-prov">${esc(r.p)}</td>
-      <td class="c-dl"><div class="dl">${esc(r.ds.split(' (')[0])}</div>${r.ds.includes('(')?`<div class="dsub">(${esc(r.ds.split(' (').slice(1).join(' ('))}</div>`:''}${dTxt}</td>
+      <td class="c-dl"><div class="dl">${esc(r.ds.split(' (')[0])}</div>${r.ds.includes('(')?`<div class="dsub">(${esc(r.ds.split(' (').slice(1).join(' ('))}</div>`:''}${dTxt}${r.d2?`<div class="dsub next">Siklus berikutnya ≈ ${fmt(r.d2)}</div>`:''}</td>
       <td class="c-url"><a href="${r.u}" target="_blank" rel="noopener">${esc(r.u.replace(/^https?:\/\/(www\.)?/,'').split('/')[0])}</a></td>
     </tr>`}).join('')||'<tr><td colspan="4">Tidak ada beasiswa yang cocok dengan saringan ini.</td></tr>';
   $('#count').textContent=all.length?`${all.length} dari ${D.length} beasiswa`:`0 dari ${D.length} beasiswa`;
@@ -258,7 +267,7 @@ function render(){
   document.querySelectorAll('th button').forEach(b=>{const k=b.dataset.sort;b.textContent=b.textContent.replace(/ [↑↓]$/,'')+(k===sortKey?(asc?' ↑':' ↓'):'')});
 }
 function strip(){
-  const counts=MONTHS.map(mo=>D.filter(r=>{const d=new Date(r.d);return r.s!=="roll"&&d.getFullYear()===mo.y&&d.getMonth()===mo.m}).length);
+  const counts=MONTHS.map(mo=>D.filter(r=>r.s!=="roll"&&(inMonth(r.d,mo)||(r.d2&&inMonth(r.d2,mo)))).length);
   const max=Math.max(...counts,1);
   $('#months').innerHTML=MONTHS.map((mo,i)=>`<button class="m" data-i="${i}" aria-pressed="${monthSel&&monthSel.y===mo.y&&monthSel.m===mo.m}"><div class="barbox"><div class="bar" style="height:${counts[i]?Math.max(8,counts[i]/max*100):3}%;opacity:${counts[i]?1:.25}"></div></div><span class="n">${counts[i]}</span><span class="lbl">${mo.l}</span></button>`).join('');
   document.querySelectorAll('.m').forEach(b=>b.onclick=()=>{const mo=MONTHS[+b.dataset.i];monthSel=(monthSel&&monthSel.y===mo.y&&monthSel.m===mo.m)?null:mo;page=1;strip();render()});
