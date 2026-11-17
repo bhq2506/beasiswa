@@ -26,8 +26,10 @@
   --ok:#6fd39e; --ok-soft:#173225; --est:#f0b45a; --est-soft:#3a2b14; --roll:#b3a6f5; --roll-soft:#29244a; --late:#ff8a7c; --late-soft:#3a1d1a; color-scheme:dark}
 *{box-sizing:border-box}
 [hidden]{display:none!important}
+.sec,.part,.checklist{scroll-margin-top:16px}
+@media (max-width:900px){.sec,.part,.checklist{scroll-margin-top:64px}}
 body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:15px;line-height:1.6}
-.wrap{max-width:1080px;margin:0 auto;padding-block:20px 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;gap:28px}
+.wrap{max-width:1240px;margin:0 auto;padding-block:20px 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;gap:28px}
 a{color:var(--accent);text-underline-offset:2px;overflow-wrap:anywhere}
 a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 h1,h2,h3,h4{font-family:var(--f-display);line-height:1.15;text-wrap:balance;margin:0}
@@ -57,12 +59,28 @@ header{display:grid;gap:10px}
 .bar{height:8px;background:var(--line);border-radius:99px;overflow:hidden}
 .bar>span{display:block;height:100%;background:var(--accent);width:0;transition:width .3s}
 @media (prefers-reduced-motion:reduce){.bar>span{transition:none}}
-/* toc */
-.toc{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px 18px}
-.toc h4{margin-bottom:6px}
-.toc ol{padding-left:0;list-style:none;gap:2px;font-size:.9rem}
-.toc .num{font-family:var(--f-mono);color:var(--muted);margin-right:6px}
-.jump{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+/* layout with left sidebar */
+.layout{display:grid;grid-template-columns:250px minmax(0,1fr);gap:32px;align-items:start}
+.content{display:grid;gap:28px;min-width:0}
+.side{position:sticky;top:16px;max-height:calc(100vh - 32px);overflow-y:auto;padding-right:4px}
+.toc summary{display:none}
+.toc nav{display:grid;gap:16px}
+.toc h4{font-size:.86rem;margin-bottom:4px}
+.toc h4 a{color:var(--fg);text-decoration:none}
+.toc ol{padding-left:0;list-style:none;gap:0;font-size:.86rem;max-width:none}
+.toc ol a,.toc-tools a{display:block;padding:5px 8px;border-left:2px solid var(--line);color:var(--muted);text-decoration:none;line-height:1.35}
+.toc ol a:hover,.toc-tools a:hover{color:var(--fg);border-left-color:var(--muted)}
+.toc a[aria-current="true"]{color:var(--accent);border-left-color:var(--accent);font-weight:600;background:var(--accent-soft)}
+.toc .num{font-family:var(--f-mono);color:var(--muted);margin-right:6px;font-size:.78rem}
+.toc-tools{font-size:.86rem;display:grid;gap:0;padding-top:12px;border-top:1px solid var(--line)}
+.toc-tools .small{margin-bottom:4px}
+@media (max-width:900px){
+  .layout{grid-template-columns:1fr;gap:20px}
+  .side{position:sticky;top:0;z-index:5;max-height:none;overflow:visible;padding:0;background:var(--bg);padding-block:8px}
+  .toc{background:var(--surface);border:1px solid var(--line);border-radius:10px}
+  .toc summary{display:block;cursor:pointer;padding:10px 14px;font-weight:600;font-size:.9rem}
+  .toc nav{padding:0 14px 14px;max-height:60vh;overflow-y:auto}
+}
 .btn{display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--fg);font:inherit;font-size:.88rem;font-weight:600;cursor:pointer;text-decoration:none}
 .btn:hover{border-color:var(--accent)}
 .btn[aria-pressed="true"],.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--bg)}
@@ -150,6 +168,36 @@ label{font-size:.82rem;font-weight:600;color:var(--muted);display:grid;gap:4px}
     <h1>Persiapan Studi PhD: Pendanaan, Pembimbing, dan Topik Riset</h1>
     <p class="lede">Panduan praktis langkah demi langkah: bagaimana pendanaan PhD di dunia sebenarnya bekerja, cara mendekati dan menilai calon pembimbing, serta cara mengubah rasa ingin tahu yang masih luas menjadi topik riset yang layak dan bisa didanai.</p>
   </header>
+  <div class="layout">
+  <aside class="side">
+    <details class="toc" id="toc" open>
+      <summary>Daftar isi</summary>
+      <nav aria-label="Daftar isi">
+  
+    <div><h4><a href="#bagian-1">01 Beasiswa &amp; Pendanaan</a></h4><ol>
+      <li><a href="#s1-1"><span class="num">1.1</span>Arti "fully funded" &amp; tiga skenario</a></li>
+      <li><a href="#s1-2"><span class="num">1.2</span>Model beasiswa vs. kontrak kerja</a></li>
+      <li><a href="#s1-3"><span class="num">1.3</span>Penjelajah tenggat global</a></li>
+      <li><a href="#s1-4"><span class="num">1.4</span>Jalur pencarian &amp; kalender</a></li>
+      <li><a href="#ck-funding"><span class="num">1.5</span>Checklist pendanaan</a></li></ol></div>
+    <div><h4><a href="#bagian-2">02 Mencari &amp; Menghubungi Pembimbing</a></h4><ol>
+      <li><a href="#s2-1"><span class="num">2.1</span>Menyaring &amp; waktu yang tepat</a></li>
+      <li><a href="#s2-2"><span class="num">2.2</span>Struktur email yang tepat sasaran</a></li>
+      <li><a href="#s2-3"><span class="num">2.3</span>Penyusun email (English)</a></li>
+      <li><a href="#s2-4"><span class="num">2.4</span>Kecocokan &amp; wawancara pertama</a></li>
+      <li><a href="#ck-supervisor"><span class="num">2.5</span>Checklist pembimbing</a></li></ol></div>
+    <div><h4><a href="#bagian-3">03 Memilih Topik yang Layak</a></h4><ol>
+      <li><a href="#s3-1"><span class="num">3.1</span>Pendekatan jamak</a></li>
+      <li><a href="#s3-2"><span class="num">3.2</span>Celah riset &amp; mempersempit topik</a></li>
+      <li><a href="#s3-3"><span class="num">3.3</span>Kerangka 7 langkah</a></li>
+      <li><a href="#s3-4"><span class="num">3.4</span>Kriteria "Big 5" &amp; jebakan</a></li>
+      <li><a href="#s3-5"><span class="num">3.5</span>Skor kelayakan topik (/80)</a></li></ol></div>
+      <div class="toc-tools"><span class="small muted">Alat interaktif</span>
+        <a href="#s1-3">Saring beasiswa global</a><a href="#s2-3">Susun email ke pembimbing</a><a href="#s3-5">Nilai topik riset</a></div>
+      </nav>
+    </details>
+  </aside>
+  <main class="content">
 
   <section class="kpis" aria-label="Progres persiapan">
     <div class="kpi"><span class="l">01 · Pendanaan &amp; Dokumen</span><span class="n" id="kpi-funding">0 / 10</span><span class="l">Langkah pencarian dana &amp; berkas inti selesai</span></div>
@@ -161,31 +209,6 @@ label{font-size:.82rem;font-weight:600;color:var(--muted);display:grid;gap:4px}
     <div class="bar" role="progressbar" aria-label="Progres keseluruhan" aria-valuemin="0" aria-valuemax="28" aria-valuenow="0" id="overall-bar"><span id="overall-fill"></span></div>
   </div>
 
-  <nav class="toc" aria-label="Daftar isi">
-    <div><h4><a href="#bagian-1">01 Beasiswa &amp; Pendanaan</a></h4><ol>
-      <li><span class="num">1.1</span><a href="#s1-1">Arti "fully funded" &amp; tiga skenario</a></li>
-      <li><span class="num">1.2</span><a href="#s1-2">Model beasiswa vs. kontrak kerja</a></li>
-      <li><span class="num">1.3</span><a href="#s1-3">Penjelajah tenggat global</a></li>
-      <li><span class="num">1.4</span><a href="#s1-4">Jalur pencarian &amp; kalender</a></li>
-      <li><span class="num">1.5</span><a href="#ck-funding">Checklist pendanaan</a></li></ol></div>
-    <div><h4><a href="#bagian-2">02 Mencari &amp; Menghubungi Pembimbing</a></h4><ol>
-      <li><span class="num">2.1</span><a href="#s2-1">Menyaring &amp; waktu yang tepat</a></li>
-      <li><span class="num">2.2</span><a href="#s2-2">Struktur email yang tepat sasaran</a></li>
-      <li><span class="num">2.3</span><a href="#s2-3">Penyusun email (English)</a></li>
-      <li><span class="num">2.4</span><a href="#s2-4">Kecocokan &amp; wawancara pertama</a></li>
-      <li><span class="num">2.5</span><a href="#ck-supervisor">Checklist pembimbing</a></li></ol></div>
-    <div><h4><a href="#bagian-3">03 Memilih Topik yang Layak</a></h4><ol>
-      <li><span class="num">3.1</span><a href="#s3-1">Pendekatan jamak</a></li>
-      <li><span class="num">3.2</span><a href="#s3-2">Celah riset &amp; mempersempit topik</a></li>
-      <li><span class="num">3.3</span><a href="#s3-3">Kerangka 7 langkah</a></li>
-      <li><span class="num">3.4</span><a href="#s3-4">Kriteria "Big 5" &amp; jebakan</a></li>
-      <li><span class="num">3.5</span><a href="#s3-5">Skor kelayakan topik (/80)</a></li></ol></div>
-  </nav>
-  <div class="jump"><span class="small muted">Langsung ke alat interaktif:</span>
-    <a class="btn" href="#s1-3">Saring beasiswa global</a>
-    <a class="btn" href="#s2-3">Susun email ke pembimbing</a>
-    <a class="btn" href="#s3-5">Nilai topik riset</a>
-  </div>
 
   <!-- ===================== BAGIAN 1 ===================== -->
   <section class="part" id="bagian-1">
@@ -533,6 +556,8 @@ label{font-size:.82rem;font-weight:600;color:var(--muted);display:grid;gap:4px}
     <p class="small muted">Sumber: disintesis dari panduan persiapan FindAPhD (Morgan James tentang pendanaan PhD &amp; stipendium UKRI; Taru Medha tentang menghubungi pembimbing), PforPhD (Zubair Hussain tentang beasiswa penuh global dan tenggatnya), PhD Atlas (metode pencarian dan verifikasi portal resmi), University of Cambridge BBSRC DTP (panduan singkat menulis email ke peneliti utama), The University of Queensland (saran pembimbing UQ tentang kontak awal dan pertemuan pertama), ApplyKite (Shana tentang kerangka 7 langkah dan skor kelayakan topik), PhD Centre (Dr Robert S tentang pendekatan jamak dan checklist topik), serta Grad Coach (Derek Jansen &amp; Eunice Rautenbach tentang kriteria Big 5). Disadur ke bahasa Indonesia dari buku panduan NotebookLM.</p>
   </section>
 
+  </main>
+  </div>
   <footer class="site-footer">Developed by <a href="https://its.id/baihaqi" target="_blank" rel="noopener noreferrer">Baihaqi</a> based on chat with <a href="https://claude.ai" target="_blank" rel="noopener noreferrer">Claude.ai</a></footer>
 </div>
 
@@ -670,6 +695,15 @@ $('#export').addEventListener('click',()=>{
 $('#reset').addEventListener('click',()=>{$('#reset-confirm').hidden=false;$('#reset').hidden=true;});
 $('#reset-no').addEventListener('click',()=>{$('#reset-confirm').hidden=true;$('#reset').hidden=false;});
 $('#reset-yes').addEventListener('click',()=>{S=JSON.parse(JSON.stringify(DEFAULT));try{localStorage.removeItem(KEY)}catch(e){}hydrateEmail();renderEmail();renderScore();renderChecks();$('#reset-confirm').hidden=true;$('#reset').hidden=false;$('#save-feedback').textContent='Progres tersimpan sudah dihapus.';setTimeout(()=>$('#save-feedback').textContent='',3000);});
+
+/* Sidebar: collapse on phones, highlight current section */
+const toc=$('#toc'),mq=matchMedia('(max-width:900px)');
+const setOpen=()=>{toc.open=!mq.matches};setOpen();mq.addEventListener('change',setOpen);
+$$('#toc a').forEach(a=>a.addEventListener('click',()=>{if(mq.matches)toc.open=false}));
+const links=$$('#toc ol a'),targets=links.map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);
+function spy(){let cur=targets[0];for(const t of targets){if(t.getBoundingClientRect().top<=120)cur=t;}
+  links.forEach(a=>a.setAttribute('aria-current',a.getAttribute('href')==='#'+cur.id?'true':'false'));}
+addEventListener('scroll',spy,{passive:true});spy();
 
 renderFunding();hydrateEmail();renderEmail();showEx('housing');renderScore();renderChecks();
 </script>
