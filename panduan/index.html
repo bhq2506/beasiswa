@@ -1,0 +1,677 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Panduan persiapan S3: memahami pendanaan PhD, menghubungi calon pembimbing, dan memilih topik riset yang layak.">
+<title>Panduan Persiapan PhD</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: handbook — tab bar, progress summary, contents, then three numbered parts with tools inline */
+:root{
+  --bg:#f5f7f8; --surface:#ffffff; --fg:#14232b; --muted:#5a6b74; --line:#dbe3e7;
+  --accent:#0b6e8a; --accent-soft:#e1f0f4;
+  --ok:#1f7a4d; --ok-soft:#e3f3ea; --est:#9a5b00; --est-soft:#fbf0dc; --roll:#5b4aa8; --roll-soft:#ece9f8; --late:#b4372b; --late-soft:#fbe7e4;
+  --f-display:"Bricolage Grotesque",ui-sans-serif,system-ui,sans-serif;
+  --f-body:"Public Sans",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0f171b; --surface:#16222a; --fg:#e4edf1; --muted:#93a6b0; --line:#273741;
+  --accent:#5cc3dd; --accent-soft:#163440;
+  --ok:#6fd39e; --ok-soft:#173225; --est:#f0b45a; --est-soft:#3a2b14; --roll:#b3a6f5; --roll-soft:#29244a; --late:#ff8a7c; --late-soft:#3a1d1a; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f171b; --surface:#16222a; --fg:#e4edf1; --muted:#93a6b0; --line:#273741;
+  --accent:#5cc3dd; --accent-soft:#163440;
+  --ok:#6fd39e; --ok-soft:#173225; --est:#f0b45a; --est-soft:#3a2b14; --roll:#b3a6f5; --roll-soft:#29244a; --late:#ff8a7c; --late-soft:#3a1d1a; color-scheme:dark}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:15px;line-height:1.6}
+.wrap{max-width:1080px;margin:0 auto;padding-block:20px 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;gap:28px}
+a{color:var(--accent);text-underline-offset:2px;overflow-wrap:anywhere}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+h1,h2,h3,h4{font-family:var(--f-display);line-height:1.15;text-wrap:balance;margin:0}
+h1{font-size:clamp(1.7rem,3.4vw,2.4rem);font-weight:700;letter-spacing:-.01em}
+h2{font-size:clamp(1.35rem,2.6vw,1.75rem);font-weight:700}
+h3{font-size:1.15rem;font-weight:600}
+h4{font-size:1rem;font-weight:600}
+p{margin:0;max-width:72ch}
+ul,ol{margin:0;padding-left:20px;display:grid;gap:6px;max-width:76ch}
+.eyebrow{font-size:.72rem;letter-spacing:.09em;text-transform:uppercase;color:var(--accent);font-weight:600}
+.muted{color:var(--muted)}
+.small{font-size:.86rem}
+.mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+/* tabs */
+.tabs{display:flex;gap:4px;border-bottom:1px solid var(--line);overflow-x:auto}
+.tabs a{padding:10px 14px;text-decoration:none;color:var(--muted);font-weight:600;font-size:.9rem;border-bottom:2px solid transparent;margin-bottom:-1px;white-space:nowrap}
+.tabs a:hover{color:var(--fg)}
+.tabs a[aria-current="page"]{color:var(--accent);border-bottom-color:var(--accent)}
+/* hero & progress */
+header{display:grid;gap:10px}
+.lede{color:var(--muted);font-size:1.02rem}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 16px;display:grid;gap:4px}
+.kpi .n{font-family:var(--f-mono);font-size:1.4rem;font-variant-numeric:tabular-nums}
+.kpi .l{font-size:.82rem;color:var(--muted)}
+.overall{display:grid;gap:6px}
+.bar{height:8px;background:var(--line);border-radius:99px;overflow:hidden}
+.bar>span{display:block;height:100%;background:var(--accent);width:0;transition:width .3s}
+@media (prefers-reduced-motion:reduce){.bar>span{transition:none}}
+/* toc */
+.toc{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px 18px}
+.toc h4{margin-bottom:6px}
+.toc ol{padding-left:0;list-style:none;gap:2px;font-size:.9rem}
+.toc .num{font-family:var(--f-mono);color:var(--muted);margin-right:6px}
+.jump{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--fg);font:inherit;font-size:.88rem;font-weight:600;cursor:pointer;text-decoration:none}
+.btn:hover{border-color:var(--accent)}
+.btn[aria-pressed="true"],.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--bg)}
+.btn.danger{color:var(--late);border-color:var(--late)}
+/* parts */
+.part{display:grid;gap:22px;padding-top:8px;border-top:2px solid var(--fg)}
+.part-head{display:grid;gap:8px}
+.sec{display:grid;gap:12px}
+.sec-head{display:flex;gap:12px;align-items:baseline}
+.sec-num{font-family:var(--f-mono);font-size:.9rem;color:var(--accent);min-width:2.4em}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 16px;display:grid;gap:8px;align-content:start;min-width:0}
+.card .tag{justify-self:start}
+.note{border-left:3px solid var(--accent);background:var(--accent-soft);padding:12px 14px;border-radius:0 8px 8px 0;display:grid;gap:6px}
+.note.warn{border-left-color:var(--est);background:var(--est-soft)}
+.note.bad{border-left-color:var(--late);background:var(--late-soft)}
+.note.good{border-left-color:var(--ok);background:var(--ok-soft)}
+.note strong:first-child{font-size:.9rem}
+.tag{display:inline-block;font-size:.72rem;font-weight:600;padding:2px 9px;border-radius:999px;background:var(--accent-soft);color:var(--accent);white-space:nowrap}
+.tag.ok{background:var(--ok-soft);color:var(--ok)} .tag.est{background:var(--est-soft);color:var(--est)} .tag.roll{background:var(--roll-soft);color:var(--roll)} .tag.bad{background:var(--late-soft);color:var(--late)}
+.steps{list-style:none;padding:0;display:grid;gap:10px;max-width:none}
+.steps li{display:grid;grid-template-columns:2.2em 1fr;gap:10px;align-items:start}
+.steps .k{font-family:var(--f-mono);font-weight:500;color:var(--accent);font-size:1.05rem}
+.steps .meta{font-family:var(--f-mono);font-size:.78rem;color:var(--muted)}
+.tbl{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:10px}
+table{width:100%;border-collapse:collapse;font-size:.9rem}
+th,td{text-align:left;vertical-align:top;padding:10px 12px;border-bottom:1px solid var(--line)}
+th{font-size:.72rem;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);font-weight:600}
+tr:last-child td{border-bottom:0}
+.timeline{display:grid;gap:0;border-left:2px solid var(--line);margin-left:6px}
+.timeline>div{position:relative;padding:4px 0 14px 18px}
+.timeline>div::before{content:"";position:absolute;left:-7px;top:10px;width:12px;height:12px;border-radius:50%;background:var(--surface);border:2px solid var(--accent)}
+.timeline .when{font-family:var(--f-mono);font-size:.82rem;color:var(--accent)}
+/* forms */
+.filters{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+input[type=text],input[type=search],select,textarea{font:inherit;color:var(--fg);background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:8px 10px;min-width:0}
+textarea{resize:vertical;min-height:72px}
+.filters input[type=search]{flex:1 1 220px}
+label{font-size:.82rem;font-weight:600;color:var(--muted);display:grid;gap:4px}
+/* checklist */
+.checklist{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 16px;display:grid;gap:10px}
+.checklist-head{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:baseline}
+.ck{font-size:.95rem;font-weight:400;color:var(--fg);display:grid;grid-template-columns:22px 1fr;gap:10px;align-items:start;padding:8px 0;border-top:1px solid var(--line)}
+.ck input{width:18px;height:18px;margin-top:3px;accent-color:var(--accent)}
+.ck b{font-weight:600}
+.ck.done b{text-decoration:line-through;color:var(--muted)}
+.ck span{font-weight:400;display:block;font-size:.85rem;color:var(--muted)}
+/* email drafter */
+.drafter{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:16px}
+@media (max-width:820px){.drafter{grid-template-columns:1fr}}
+.fields{display:grid;gap:10px}
+.preview{background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:14px;font-size:.9rem;white-space:pre-wrap;overflow-wrap:anywhere;user-select:text}
+.preview .subj{font-weight:600;margin-bottom:10px;display:block}
+/* topic examples */
+.ex{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+/* scorecard */
+.sc{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:16px}
+@media (max-width:820px){.sc{grid-template-columns:1fr}}
+.crit{display:grid;grid-template-columns:1fr auto auto;gap:10px;align-items:center;padding:8px 0;border-top:1px solid var(--line)}
+@media (max-width:520px){.crit{grid-template-columns:1fr auto}.crit .pts{grid-column:2;grid-row:1}}
+.rate{display:flex;gap:4px}
+.rate button{width:32px;height:32px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--fg);font:inherit;font-family:var(--f-mono);cursor:pointer}
+.rate button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--bg)}
+.pts{font-family:var(--f-mono);font-size:.85rem;color:var(--muted);min-width:4.5em;text-align:right}
+.total{font-family:var(--f-display);font-size:2.4rem;font-weight:700;font-variant-numeric:tabular-nums}
+.hbar{display:grid;grid-template-columns:8.5em 1fr 3.2em;gap:8px;align-items:center;font-size:.8rem}
+.hbar .track{height:12px;background:var(--line);border-radius:3px;position:relative;overflow:hidden}
+.hbar .fill{position:absolute;inset:0 auto 0 0;background:var(--accent)}
+.hbar .cap{position:absolute;inset:0 auto 0 0;border-right:2px solid var(--muted)}
+.hbar .v{font-family:var(--f-mono);text-align:right;color:var(--muted)}
+.site-footer{border-top:1px solid var(--line);padding-top:14px;color:var(--muted);font-size:.82rem}
+.live{font-size:.82rem;color:var(--ok);min-height:1.2em}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav class="tabs" aria-label="Bagian situs">
+    <a href="../">Daftar Beasiswa PhD</a>
+    <a href="./" aria-current="page">Panduan Persiapan PhD</a>
+  </nav>
+
+  <header>
+    <div class="eyebrow">Buku Panduan Doktoral · Siklus Pendaftaran 2026–2027</div>
+    <h1>Persiapan Studi PhD: Pendanaan, Pembimbing, dan Topik Riset</h1>
+    <p class="lede">Panduan praktis langkah demi langkah: bagaimana pendanaan PhD di dunia sebenarnya bekerja, cara mendekati dan menilai calon pembimbing, serta cara mengubah rasa ingin tahu yang masih luas menjadi topik riset yang layak dan bisa didanai.</p>
+  </header>
+
+  <section class="kpis" aria-label="Progres persiapan">
+    <div class="kpi"><span class="l">01 · Pendanaan &amp; Dokumen</span><span class="n" id="kpi-funding">0 / 10</span><span class="l">Langkah pencarian dana &amp; berkas inti selesai</span></div>
+    <div class="kpi"><span class="l">02 · Menghubungi Pembimbing</span><span class="n" id="kpi-supervisor">0 / 9</span><span class="l">Penyaringan, kontak &amp; persiapan wawancara selesai</span></div>
+    <div class="kpi"><span class="l">03 · Topik Riset</span><span class="n" id="kpi-topic">0 / 9</span><span class="l">Cek celah riset &amp; kelayakan · <span id="kpi-best">Terbaik: 0/80</span></span></div>
+  </section>
+  <div class="overall">
+    <div class="small muted">Progres checklist keseluruhan: <b class="mono" id="overall-label">0 / 28</b> · tersimpan otomatis di browser ini</div>
+    <div class="bar" role="progressbar" aria-label="Progres keseluruhan" aria-valuemin="0" aria-valuemax="28" aria-valuenow="0" id="overall-bar"><span id="overall-fill"></span></div>
+  </div>
+
+  <nav class="toc" aria-label="Daftar isi">
+    <div><h4><a href="#bagian-1">01 Beasiswa &amp; Pendanaan</a></h4><ol>
+      <li><span class="num">1.1</span><a href="#s1-1">Arti "fully funded" &amp; tiga skenario</a></li>
+      <li><span class="num">1.2</span><a href="#s1-2">Model beasiswa vs. kontrak kerja</a></li>
+      <li><span class="num">1.3</span><a href="#s1-3">Penjelajah tenggat global</a></li>
+      <li><span class="num">1.4</span><a href="#s1-4">Jalur pencarian &amp; kalender</a></li>
+      <li><span class="num">1.5</span><a href="#ck-funding">Checklist pendanaan</a></li></ol></div>
+    <div><h4><a href="#bagian-2">02 Mencari &amp; Menghubungi Pembimbing</a></h4><ol>
+      <li><span class="num">2.1</span><a href="#s2-1">Menyaring &amp; waktu yang tepat</a></li>
+      <li><span class="num">2.2</span><a href="#s2-2">Struktur email yang tepat sasaran</a></li>
+      <li><span class="num">2.3</span><a href="#s2-3">Penyusun email (English)</a></li>
+      <li><span class="num">2.4</span><a href="#s2-4">Kecocokan &amp; wawancara pertama</a></li>
+      <li><span class="num">2.5</span><a href="#ck-supervisor">Checklist pembimbing</a></li></ol></div>
+    <div><h4><a href="#bagian-3">03 Memilih Topik yang Layak</a></h4><ol>
+      <li><span class="num">3.1</span><a href="#s3-1">Pendekatan jamak</a></li>
+      <li><span class="num">3.2</span><a href="#s3-2">Celah riset &amp; mempersempit topik</a></li>
+      <li><span class="num">3.3</span><a href="#s3-3">Kerangka 7 langkah</a></li>
+      <li><span class="num">3.4</span><a href="#s3-4">Kriteria "Big 5" &amp; jebakan</a></li>
+      <li><span class="num">3.5</span><a href="#s3-5">Skor kelayakan topik (/80)</a></li></ol></div>
+  </nav>
+  <div class="jump"><span class="small muted">Langsung ke alat interaktif:</span>
+    <a class="btn" href="#s1-3">Saring beasiswa global</a>
+    <a class="btn" href="#s2-3">Susun email ke pembimbing</a>
+    <a class="btn" href="#s3-5">Nilai topik riset</a>
+  </div>
+
+  <!-- ===================== BAGIAN 1 ===================== -->
+  <section class="part" id="bagian-1">
+    <div class="part-head">
+      <div class="eyebrow">Bagian 01 · Strategi Keuangan</div>
+      <h2>Mencari dan Mendapatkan Beasiswa serta Pendanaan PhD</h2>
+      <p class="muted">Banyak pelamar hanya mencari di situs agregator umum dan melewatkan lowongan yang terbuka. Penyebabnya, pendanaan PhD terbagi dalam dua sistem yang sangat berbeda: beasiswa kompetitif dan kontrak kerja bergaji di universitas.</p>
+    </div>
+
+    <div class="sec" id="s1-1">
+      <div class="sec-head"><span class="sec-num">1.1</span><h3>Arti "Fully Funded" dan Tiga Skenario Pendanaan</h3></div>
+      <p>Paket PhD yang benar-benar <i>fully funded</i> menanggung dua hal pokok: <b>seluruh biaya kuliah</b> dan <b>tunjangan hidup, gaji, atau stipendium rutin</b>. Jika hanya salah satunya yang ditanggung, itu pendanaan parsial. Beasiswa pemerintah yang lebih kuat (misalnya Australia Awards atau GKS Korea Selatan) juga menanggung tiket pulang-pergi, biaya visa, asuransi kesehatan, dan tunjangan kedatangan. Posisi kerja di universitas jarang menanggung tiket kepindahan.</p>
+      <p>Nilai "bebas SPP" sangat bergantung pada negara tujuan. SPP doktoral internasional berkisar £18.000–£30.000 per tahun di Inggris, hingga $60.000 per tahun di AS, dan AUD 28.000–50.000 per tahun di Australia. Sebaliknya, universitas negeri di Jerman, Belanda, dan Swedia sama sekali tidak memungut SPP.</p>
+      <div class="grid3">
+        <div class="card"><span class="tag ok">Jalur sasaran</span><h4>Didanai penuh</h4><p class="small">Studentship penuh atau gaji kontrak kerja yang menanggung biaya kuliah dan biaya hidup. Paling umum di bidang STEM, meski pendanaan penuh yang kompetitif juga ada di bidang seni, humaniora, dan ilmu sosial.</p></div>
+        <div class="card"><span class="tag est">Jalur portofolio</span><h4>Didanai sebagian</h4><p class="small">Beasiswa parsial, potongan SPP alumni, atau hibah yayasan yang menanggung biaya kuliah <i>atau</i> biaya hidup (tidak keduanya). Biasanya digabung menjadi portofolio pendanaan bersama asisten mengajar (GTA) atau tabungan.</p></div>
+        <div class="card"><span class="tag bad">Hati-hati</span><h4>Biaya sendiri</h4><p class="small">Dibiayai pinjaman (mis. pinjaman PhD Inggris £31.122), tabungan pribadi, dan kerja paruh waktu. Hanya layak di bidang berbiaya rendah dan tetap berisiko: biaya hidup, bukan SPP, biasanya pengeluaran yang paling sulit ditanggung selama 3–4 tahun lebih.</p></div>
+      </div>
+      <div class="note warn"><strong>Cek realitas: studi paruh waktu dan perubahan status pendanaan</strong><p class="small">Studi paruh waktu membuat beban kerja lebih ringan dan SPP per tahun menjadi separuh, tetapi <b>tidak membuat PhD lebih murah</b>: Anda menanggung biaya hidup untuk masa studi yang kira-kira dua kali lebih lama. Status pendanaan juga tidak terkunci permanen. Mahasiswa yang sedang studi bisa melamar hibah tambahan, posisi GTA, dan bantuan yayasan, tetapi jangan pernah mengandalkan dana tahun kedua untuk menyelamatkan tahun pertama yang sebenarnya tidak terjangkau.</p></div>
+    </div>
+
+    <div class="sec" id="s1-2">
+      <div class="sec-head"><span class="sec-num">1.2</span><h3>Dua Model Pendanaan Global: Beasiswa vs. Kontrak Kerja</h3></div>
+      <p>Mencampuradukkan dua model ini adalah alasan terbesar pelamar internasional melewatkan kursi berpendanaan. Pahami model yang berlaku di negara tujuan sebelum menyiapkan dokumen atau menunggu portal dibuka.</p>
+      <div class="grid2">
+        <div class="card"><span class="tag">Model 1</span><h4>Model Beasiswa</h4><p class="small">Badan pemerintah, dewan riset, atau yayasan menyeleksi Anda lewat kompetisi tahunan. Anda melamar ke skema beasiswa (atau lewat lembaga nominasi/kedutaan di negara asal); jika terpilih, skema itu mendanai studi Anda di universitas yang disetujui.</p>
+          <ul class="small"><li><b>Contoh:</b> DAAD Research Grants, Commonwealth PhD Scholarships, GKS (Korea Selatan), MEXT (Jepang), CSC (Tiongkok), Australia Awards, Swiss SGES, Fulbright untuk warga asing.</li>
+          <li><b>Ritme:</b> jendela tahunan tetap (sering 10–14 bulan sebelum mulai kuliah). Tingkat penerimaan sering di bawah 5%, jadi lamar 5–8 skema sekaligus.</li></ul></div>
+        <div class="card"><span class="tag ok">Model 2</span><h4>Model Kontrak Kerja</h4><p class="small">Universitas atau lembaga riset mempekerjakan Anda sebagai peneliti doktoral bergaji dengan kontrak kerja. Tidak ada lamaran beasiswa terpisah: Anda melamar lowongan, dan karena berstatus pegawai, tidak ada SPP.</p>
+          <ul class="small"><li><b>Contoh:</b> posisi <i>promovendus</i> di Belanda, <i>doktorand</i> di Swedia, Max Planck IMPRS &amp; kontrak universitas Jerman, ETH Zurich / EPFL, KAIST / POSTECH, OIST.</li>
+          <li><b>Ritme:</b> diiklankan sepanjang tahun di portal SDM dan lowongan riset setiap kali profesor memenangkan hibah. Sistem hibrida seperti Jerman dan Inggris (UKRI DTP) menjalankan kedua model.</li></ul></div>
+      </div>
+      <div class="note bad"><strong>Aturan waktu kritis untuk posisi kerja di Eropa</strong><p class="small">Lamar dalam <b>minggu pertama</b> lowongan PhD model kontrak kerja diiklankan. Panitia seleksi di Eropa sering mulai meninjau kandidat begitu lamaran masuk, tanpa menunggu tanggal tutup. Pada hari ke-14, calon pembimbing mungkin sudah memilih tiga pelamar kuat yang masuk di hari pertama dan kedua.</p></div>
+    </div>
+
+    <div class="sec" id="s1-3">
+      <div class="sec-head"><span class="sec-num">1.3</span><h3>Penjelajah Pendanaan &amp; Tenggat Global (2026–2027)</h3></div>
+      <p>Bandingkan skema beasiswa penuh dan jalur kontrak kerja utama secara berdampingan. Saring berdasarkan model pendanaan, kawasan, atau kata kunci, lalu selalu konfirmasi aturan akhir di portal resmi yang disebut pada kolom paling kanan. Untuk daftar yang lebih lengkap dengan tanggal terkini, buka tab <a href="../">Daftar Beasiswa PhD</a>.</p>
+      <div class="filters">
+        <input type="search" id="f-q" placeholder="Cari negara, skema, atau catatan…" aria-label="Cari pendanaan">
+        <select id="f-region" aria-label="Kawasan">
+          <option value="all">Semua kawasan</option><option value="Europe">Eropa (selain Inggris)</option><option value="UK">Inggris</option><option value="Asia-Pacific">Asia-Pasifik</option><option value="Americas">Amerika / Global</option>
+        </select>
+      </div>
+      <div class="filters" role="group" aria-label="Model pendanaan">
+        <button class="btn" data-model="all" aria-pressed="true">Semua model</button>
+        <button class="btn" data-model="Scholarship" aria-pressed="false">Model beasiswa</button>
+        <button class="btn" data-model="Employment" aria-pressed="false">Model kontrak kerja</button>
+        <button class="btn" data-model="Studentship" aria-pressed="false">Studentship / hibah</button>
+        <span class="small muted" id="f-count" style="margin-left:auto"></span>
+      </div>
+      <div class="tbl"><table style="min-width:760px">
+        <thead><tr><th>Negara / Skema</th><th>Model</th><th>Stipendium / Gaji</th><th>Jendela 2026–27</th><th>Syarat utama &amp; portal resmi</th></tr></thead>
+        <tbody id="f-body"></tbody>
+      </table></div>
+      <p class="small muted" id="f-empty" hidden>Tidak ada program yang cocok dengan saringan ini. Kosongkan kotak pencarian atau pilih kembali "Semua model".</p>
+      <p class="small muted">Angka stipendium dan jendela waktu mengikuti sumber panduan aslinya; beberapa tenggat (mis. DAAD 15 Okt 2026) sudah lewat untuk siklus ini.</p>
+    </div>
+
+    <div class="sec" id="s1-4">
+      <div class="sec-head"><span class="sec-num">1.4</span><h3>Enam Saluran Pendanaan, Basis Data Hibah &amp; Kalender 12 Bulan</h3></div>
+      <p>Baik melamar di satu negara maupun lintas benua, pencarian dana yang sistematis menggabungkan proyek yang diiklankan, portal resmi, dan basis data hibah yang tidak diiklankan.</p>
+      <h4>Rencana aksi pendanaan 6 langkah (FindAPhD)</h4>
+      <ol class="steps">
+        <li><span class="k">1</span><div><b>Bicarakan dengan calon pembimbing (jika sudah berkomunikasi).</b><p class="small muted">Jangan mengirim email ke calon pembimbing hanya untuk meminta dana. Tetapi jika diskusi sudah berjalan, tanyakan skema khusus bidang yang mereka sarankan.</p></div></li>
+        <li><span class="k">2</span><div><b>Cari proyek yang diiklankan beserta dananya.</b><p class="small muted">Proyek yang sudah didanai (terutama STEM, tetapi juga ada di sastra Inggris, filsafat, dan sosiologi) menggabungkan pembimbing dan pendanaan sekaligus. Gunakan portal seperti FindAPhD, EURAXESS, dan AcademicPositions.</p></div></li>
+        <li><span class="k">3</span><div><b>Cari studentship &amp; bantuan terpisah.</b><p class="small muted">Jika mengusulkan topik sendiri, cari beasiswa universitas, studentship dewan riset (seperti UKRI), atau beasiswa nasional yang bisa dilekatkan ke surat penerimaan.</p></div></li>
+        <li><span class="k">4</span><div><b>Jajaki pendana bisnis, industri &amp; eksternal.</b><p class="small muted">Sponsor komersial mendanai PhD yang sejalan dengan prioritas industri (kadang untuk karyawan sendiri). Periksa kesesuaiannya, dan cek juga hibah aktif dari dewan riset nasional.</p></div></li>
+        <li><span class="k">5</span><div><b>Bangun portofolio pendanaan parsial.</b><p class="small muted">Jika studentship penuh tidak tersedia, gabungkan GTA, potongan SPP alumni, dan yayasan kecil, dan selalu pastikan syarat masing-masing memperbolehkan penggabungan.</p></div></li>
+        <li><span class="k">6</span><div><b>Pertimbangkan biaya sendiri hanya sebagai pilihan terakhir.</b><p class="small muted">Diskusikan kemampuan kerja paruh waktu yang realistis dan total kebutuhan biaya hidup dengan calon pembimbing sebelum berkomitmen pada pinjaman atau tabungan pribadi.</p></div></li>
+      </ol>
+      <div class="card"><h4>Tempat mencari dana tersembunyi: basis data hibah dewan riset nasional</h4>
+        <p class="small">Dewan riset memberikan hibah multi-tahun kepada profesor, dan hibah itu kemudian membuka posisi PhD, sering sebelum iklan lowongan terbit. Cari di basis data resmi berikut dengan kata kunci riset Anda, temukan profesor yang memenangkan hibah dalam 12 bulan terakhir, lalu kirim email dengan CV dan proposal 1 halaman:</p>
+        <ul class="small">
+          <li><b>Jerman</b> — DFG GEPRIS (<a href="https://gepris.dfg.de" target="_blank" rel="noopener">gepris.dfg.de</a>): hibah aktif German Research Foundation.</li>
+          <li><b>Swedia</b> — VR SweCRIS (<a href="https://www.vr.se/swecris" target="_blank" rel="noopener">vr.se/swecris</a>): proyek yang didanai Swedish Research Council.</li>
+          <li><b>Belanda</b> — basis data hibah NWO (<a href="https://www.nwo.nl" target="_blank" rel="noopener">nwo.nl</a>): penghargaan Dutch Research Council.</li>
+          <li><b>Australia</b> — ARC &amp; NHMRC (<a href="https://www.arc.gov.au" target="_blank" rel="noopener">arc.gov.au</a>, <a href="https://www.nhmrc.gov.au" target="_blank" rel="noopener">nhmrc.gov.au</a>): hibah Discovery dan medis yang sering membawa stipendium PhD.</li>
+          <li><b>Korea Selatan</b> — basis data NRF (<a href="https://www.nrf.re.kr" target="_blank" rel="noopener">nrf.re.kr</a>): sumber utama lowongan berpendanaan di KAIST, POSTECH, SNU, dan Yonsei.</li>
+          <li><b>Swiss</b> — SNF P3 (<a href="https://p3.snf.ch" target="_blank" rel="noopener">p3.snf.ch</a>): hibah Swiss National Science Foundation di ETH Zurich, EPFL, dan universitas kanton.</li>
+        </ul></div>
+      <h4>Rencana aksi pendanaan 12 bulan (target masuk September 2027)</h4>
+      <div class="timeline">
+        <div><div class="when">Sep–Okt 2026</div><p class="small">Tetapkan negara tujuan dan 5–8 skema; pesan tes IELTS 12+ minggu sebelumnya; legalisasi 4–6 set transkrip; beri tahu pemberi rekomendasi (minimal 8 minggu sebelumnya); mulai hubungi pembimbing model kontrak kerja.</p></div>
+        <div><div class="when">Okt–Nov 2026</div><p class="small">Kirim DAAD (15 Okt), Commonwealth lewat lembaga nominasi (Okt–Nov), dan Swiss SGES lewat Kedubes (Agt–Des); lanjutkan kampanye kontak pembimbing.</p></div>
+        <div><div class="when">Des 2026–Jan 2027</div><p class="small">Lamar CSC Type B ke universitas Tiongkok (dibuka Des, tenggat Jan); lamar proyek UKRI DTP yang cocok di FindAPhD.</p></div>
+        <div><div class="when">Feb–Mar 2027</div><p class="small">Kirim GKS Korea Selatan lewat Kedubes; penuhi tenggat UKRI DTP yang tersisa; tindak lanjuti dengan sopan email pembimbing yang belum dibalas.</p></div>
+        <div><div class="when">Apr 2027</div><p class="small">Penuhi tenggat Manaaki Selandia Baru (10 Apr) dan Australia Awards (30 Apr); pantau EURAXESS dan AcademicPositions setiap minggu.</p></div>
+        <div><div class="when">Mei–Jun 2027</div><p class="small">Ikuti siklus MEXT jalur Kedubes (intake berikutnya); bandingkan tawaran dari lamaran Okt–Feb, terima paket terbaik, dan tarik diri secara resmi dari yang lain.</p></div>
+      </div>
+    </div>
+
+    <div class="checklist" id="ck-funding" data-section="funding">
+      <div class="checklist-head"><h3><span class="sec-num">1.5</span> Checklist Bagian 01: Pendanaan, Verifikasi &amp; Berkas Inti</h3><span class="tag" id="badge-funding">0 / 10 selesai</span></div>
+      <label class="ck"><input type="checkbox" data-id="fund-1"><div><b>Pastikan model pendanaan negara tujuan (beasiswa vs. kontrak kerja)</b><span>Tentukan apakah Anda perlu portal beasiswa tahunan, notifikasi lowongan SDM yang bergulir, atau keduanya.</span></div></label>
+      <label class="ck"><input type="checkbox" data-id="fund-2"><div><b>Jalankan cek verifikasi resmi 5 poin (PhD Atlas) untuk setiap info</b><span>Pastikan domain resmi, tahun/call terkini, tenggat aktif, email kontak, serta aturan kewarganegaraan/mobilitas MSCA.</span></div></label>
+      <label class="ck"><input type="checkbox" data-id="fund-3"><div><b>Pilih 5–8 sasaran pendanaan independen dengan tenggat berbeda</b><span>Jangan bergantung pada satu beasiswa pemerintah dengan tingkat penerimaan &lt;5%.</span></div></label>
+      <label class="ck"><input type="checkbox" data-id="fund-4"><div><b>Siapkan 4–6 set transkrip dan ijazah yang dilegalisasi</b><span>Minta surat keterangan dari bagian akademik tentang perkiraan kelulusan jika gelar Anda masih berjalan.</span></div></label>
+      <label class="ck"><input type="checkbox" data-id="fund-5"><div><b>Susun CV akademik maksimal 2 halaman (bukan resume industri)</b><span>Tonjolkan pendidikan, IPK (X dari Y), judul tesis, pengalaman riset, publikasi, dan penghargaan.</span></div></label>
+      <label class="ck"><input type="checkbox" data-id="fund-6"><div><b>Tulis draf inti proposal riset / rencana studi 1.500–3.000 kata</b><span>Dipakai sebagai kriteria seleksi utama oleh DAAD/Commonwealth dan sebagai contoh karya pada lamaran kerja.</span></div></label>
+      <label class="ck"><input type="checkbox" data-id="fund-7"><div><b>Minta 2–3 surat rekomendasi spesifik minimal 8 minggu sebelum tenggat</b><span>Berikan pemberi rekomendasi ringkasan 1 halaman tentang rubrik skema dan karya riset Anda.</span></div></label>
+      <label class="ck"><input type="checkbox" data-id="fund-8"><div><b>Cek syarat tes bahasa Inggris (IELTS 6,5–7,0) dan pesan 12+ minggu lebih awal</b><span>Periksa pengecualian (mis. MEXT tidak mensyaratkan IELTS; DAAD dan banyak kontrak Eropa fleksibel soal bukti kemampuan).</span></div></label>
+      <label class="ck"><input type="checkbox" data-id="fund-9"><div><b>Cek masa berlaku paspor &amp; pindai halaman data/tanda tangan</b><span>Pastikan masa berlakunya cukup untuk proses lamaran, visa, dan tanggal mulai.</span></div></label>
+      <label class="ck"><input type="checkbox" data-id="fund-10"><div><b>Buat rutinitas pencarian mingguan di EURAXESS, AcademicPositions &amp; basis data hibah</b><span>Lamar dalam 7 hari sejak lowongan kontrak kerja Eropa terbit, dan cek ulang tenggat beberapa hari sebelum mengirim.</span></div></label>
+    </div>
+  </section>
+
+  <!-- ===================== BAGIAN 2 ===================== -->
+  <section class="part" id="bagian-2">
+    <div class="part-head">
+      <div class="eyebrow">Bagian 02 · Pendampingan Akademik</div>
+      <h2>Mencari, Menghubungi, dan Mewawancarai Calon Pembimbing PhD</h2>
+      <p class="muted">Pada kebanyakan PhD, keputusan penerimaan berawal dari peneliti utama (PI). Email yang ringkas dan sangat disesuaikan menunjukkan bahwa Anda memahami riset aktif mereka, bukan sekadar jabatannya.</p>
+    </div>
+
+    <div class="sec" id="s2-1">
+      <div class="sec-head"><span class="sec-num">2.1</span><h3>Mencari, Menyaring, dan Menentukan Waktu Mendekati Pembimbing</h3></div>
+      <p>Pertama, pastikan apakah universitas tujuan memakai portal <i>Expression of Interest</i> (EOI) di awal (seperti University of Queensland) sebelum menghubungi dosen secara langsung. Jika kontak langsung memang tepat, email lebih disukai daripada telepon karena dosen yang sibuk bisa menilai profil Anda di waktu luangnya.</p>
+      <ul>
+        <li><b>Tiga cara menemukan pembimbing yang tepat:</b> (1) saring direktori staf akademik di halaman departemen berdasarkan minat riset terkini; (2) tanyakan dosen, pembimbing akademik, atau pembimbing S2 Anda, dan jika menyasar institusi lain, minta mentor memperkenalkan Anda lewat email; (3) telusuri daftar pustaka dan jurnal terbaru untuk menemukan penulis yang aktif menerbitkan di ceruk Anda.</li>
+        <li><b>Jangan berhenti di halaman profil:</b> baca 2–3 makalah terakhir tiap kandidat untuk memastikan karya aktif mereka sejalan dengan arah Anda, bukan mengandalkan deskripsi fakultas yang sudah usang.</li>
+        <li><b>Pertimbangkan juga pembimbing muda:</b> asisten profesor dan peneliti junior sering boleh membimbing (cek aturan departemen) dan biasanya punya lebih banyak waktu untuk mendampingi daripada profesor senior "superstar" yang terlalu sibuk.</li>
+        <li><b>Berapa banyak dan kapan menulis:</b> sesuaikan email secara mendalam untuk 3–8 calon pembimbing (atau 15–20 di 3–5 universitas untuk kampanye mencari dana). Kirim email pertama <b>minimal 8–12 minggu sebelum tenggat</b> lamaran, atau 6–12 bulan sebelumnya jika mencari posisi yang didanai hibah.</li>
+      </ul>
+    </div>
+
+    <div class="sec" id="s2-2">
+      <div class="sec-head"><span class="sec-num">2.2</span><h3>Etika Email Pertama &amp; Struktur yang Tepat Sasaran</h3></div>
+      <p>Dosen langsung menghapus pesan generik seperti <i lang="en">"I am eager to join your prestigious lab"</i>. Penasihat dari Cambridge Biosciences DTP, FindAPhD, dan University of Queensland sepakat tentang lima bagian email pertama yang efektif. Contoh kalimat di bawah sengaja dibiarkan dalam bahasa Inggris.</p>
+      <ol class="steps">
+        <li><span class="k">1</span><div><b>Subjek yang spesifik</b><p class="small">Jangan menulis <i lang="en">"Hello"</i>, <i lang="en">"Enquiry"</i>, atau <i lang="en">"Can you help?"</i>. Tunjukkan maksud dengan jelas: <b lang="en">"Prospective PhD student interested in [research area]"</b> atau <b lang="en">"Enquiry for [Funder]-funded PhD in [Topic]"</b>.</p></div></li>
+        <li><span class="k">2</span><div><b>Perkenalan singkat (1–2 kalimat)</b><p class="small">Gunakan sapaan yang tepat (<b lang="en">Dear Dr [Surname]</b> atau <b lang="en">Dear Professor [Surname]</b>). Sebutkan nama, gelar/institusi saat ini, IPK beserta skala penuhnya (mis. <i>3.7/4.0</i> atau <i>7/7</i> agar skala internasional tidak salah dibaca), serta rencana waktu mulai dan status pendanaan.</p></div></li>
+        <li><span class="k">3</span><div><b>Keselarasan riset (inti email)</b><p class="small">Sebutkan satu makalah, temuan, atau proyek hibah terbaru mereka yang menarik perhatian Anda, lalu jelaskan dalam 1–2 kalimat bagaimana pertanyaan riset Anda memperluas atau terhubung dengan karya tersebut.</p></div></li>
+        <li><span class="k">4</span><div><b>Kecocokan &amp; CV mini</b><p class="small">Hubungkan mata kuliah, keterampilan laboratorium/analitis, atau proyek riset yang relevan dengan kelompok mereka. Sebut makalah terbit yang bisa diverifikasi (sertakan judul atau tautan) dan lampirkan CV PDF 1–2 halaman yang rapi.</p></div></li>
+        <li><span class="k">5</span><div><b>Permintaan yang jelas &amp; penutup</b><p class="small">Tanyakan langsung apakah mereka menerima mahasiswa PhD (dan memperkirakan ada posisi berpendanaan, jika relevan) serta apakah bersedia berbicara singkat lewat panggilan. Tutup secara profesional (<b lang="en">Kind regards</b> / <b lang="en">Yours sincerely</b>).</p></div></li>
+      </ol>
+      <div class="note"><strong>Perlukah melampirkan proposal riset lengkap di email pertama?</strong>
+        <p class="small"><b>Proyek yang diiklankan / sudah ditentukan:</b> tidak perlu proposal; Anda melamar ke hibah yang cakupannya sudah ada.</p>
+        <p class="small"><b>Topik usulan sendiri:</b> ambil jalan tengah. Draf dasar 1 halaman (bukan tesis kaku 10 halaman) menunjukkan keseriusan sekaligus keterbukaan untuk menyempurnakannya bersama pembimbing. Jika baru menguji ketersediaan pembimbing, buat badan email hanya <b>100–200 kata</b>. Jika tidak ada balasan setelah <b>1–2 minggu</b>, kirim satu pengingat yang sopan, dan jangan pernah menganggap diam sebagai penolakan pribadi atau mengirim tindak lanjut berulang.</p></div>
+    </div>
+
+    <div class="sec" id="s2-3">
+      <div class="sec-head"><span class="sec-num">2.3</span><h3>Penyusun Email Interaktif untuk Calon Pembimbing</h3></div>
+      <p>Susun email pertama yang ringkas dan personal mengikuti templat Cambridge DTP dan UQ. Isian dan hasil email sengaja dalam bahasa Inggris. Isian Anda tersimpan otomatis di browser ini, sehingga draf bisa disesuaikan untuk beberapa calon pembimbing.</p>
+      <div class="card">
+        <div class="drafter" lang="en">
+          <div class="fields">
+            <label for="em-supervisor">Supervisor Title &amp; Surname<input type="text" id="em-supervisor" placeholder="e.g. Dr Patel"></label>
+            <label for="em-area">Research Area (for Subject Line)<input type="text" id="em-area" placeholder="e.g. Sustainable Supply Chains"></label>
+            <label for="em-name">Your Full Name<input type="text" id="em-name"></label>
+            <label for="em-degree">Current Qualification &amp; GPA (X/Y)<input type="text" id="em-degree" placeholder="e.g. MSc Industrial Engineering (GPA 3.8/4.0, ITS)"></label>
+            <label for="em-paper">Specific Paper or Project of Theirs<input type="text" id="em-paper"></label>
+            <label for="em-fit">Your Relevant Methods / Research Connection<textarea id="em-fit"></textarea></label>
+            <label for="em-idea">Your 1-Line Proposed Angle<input type="text" id="em-idea"></label>
+            <label for="em-funding">Funding &amp; Proposal Context<select id="em-funding">
+              <option value="scholarship">Applying for competitive scholarship + 1-page draft attached</option>
+              <option value="grant">Enquiring about grant-funded PhD openings + CV attached</option>
+              <option value="advertised">Applying to advertised funded project + CV attached</option>
+            </select></label>
+            <label for="em-start">Target Start Window<input type="text" id="em-start" value="September 2027"></label>
+          </div>
+          <div style="display:grid;gap:10px;align-content:start;min-width:0">
+            <div class="small muted" lang="id">Pratinjau email · <span class="mono" id="em-words">0 words</span></div>
+            <div class="preview" id="em-preview" aria-live="polite"><span class="subj" id="em-subject"></span><span id="em-body"></span></div>
+            <div class="filters">
+              <button class="btn primary" id="em-copy" type="button">Copy Email to Clipboard</button>
+              <button class="btn" id="em-sample" type="button">Load Example</button>
+              <button class="btn" id="em-clear" type="button">Clear Fields</button>
+            </div>
+            <div class="live" id="em-feedback" lang="id"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec" id="s2-4">
+      <div class="sec-head"><span class="sec-num">2.4</span><h3>Menilai Kecocokan Pembimbing &amp; Menjalankan Pertemuan Pertama</h3></div>
+      <p>Pembimbing praktis menjadi mitra akademik terdekat Anda selama 3–4 tahun. Perlakukan panggilan video atau obrolan pertama sebagai <b>wawancara dua arah</b>: mereka menilai rasa ingin tahu, kesiapan teknis, dan keterbukaan Anda terhadap masukan, sementara Anda menilai kapasitas pendampingan dan gaya kerja mereka.</p>
+      <div class="grid2">
+        <div class="note good"><strong>5 ciri pembimbing yang kuat</strong><ul class="small">
+          <li><b>Keahlian aktif dan terkini:</b> makalah peer-review terbaru, sitasi, dan kehadiran di konferensi.</li>
+          <li><b>Karier yang stabil:</b> tidak akan pensiun, cuti panjang, atau pindah institusi di tengah masa PhD Anda.</li>
+          <li><b>Rekam jejak membimbing:</b> cek kelulusan dan karier mahasiswa sebelumnya lewat LinkedIn, ResearchGate, atau anggota lab saat ini.</li>
+          <li><b>Gaya membimbing yang cocok:</b> antusias terhadap ide Anda, jelas soal dukungan langsung atau lepas tangan.</li>
+          <li><b>Teratur dan mudah dihubungi:</b> jadwal pertemuan rutin, umpan balik tepat waktu, dan tonggak yang jelas.</li></ul></div>
+        <div class="note bad"><strong>Tanda bahaya yang perlu dikenali sejak awal</strong><ul class="small">
+          <li><b>Terlalu mengontrol:</b> memaksa Anda meninggalkan minat riset sendiri demi proyek yang tidak terkait tanpa alasan metodologis yang jelas.</li>
+          <li><b>Kurang kompeten di ceruk Anda:</b> meminta revisi karena tidak memahami bidang Anda, bukan karena celah literatur yang nyata.</li>
+          <li><b>Jawaban kabur soal waktu &amp; dana:</b> kapasitas membimbing tidak jelas, tidak ada jam konsultasi, atau janji pendanaan yang mengambang.</li></ul></div>
+      </div>
+      <h4>Agenda pertemuan pertama 30 menit &amp; pertanyaan yang bernilai tinggi</h4>
+      <p class="small muted">Pertanyaan untuk pembimbing dibiarkan dalam bahasa Inggris agar bisa langsung dipakai.</p>
+      <div class="tbl"><table style="min-width:620px">
+        <thead><tr><th>Blok</th><th>Waktu</th><th>Fokus Anda &amp; pertanyaan yang diajukan</th></tr></thead>
+        <tbody>
+          <tr><td><b>1. Perkenalan singkat</b></td><td class="mono">2–3 mnt</td><td>Ringkas latar belakang akademik, metode riset utama, dan alasan ingin menempuh PhD (tunjukkan juga minat seimbang di luar studi).</td></tr>
+          <tr><td><b>2. Keselarasan riset</b></td><td class="mono">5–10 mnt</td><td>Jelaskan bagaimana rasa ingin tahu riset Anda terhubung dengan makalah terbaru mereka; sampaikan pertanyaan inti dan tunjukkan keterbukaan untuk penyesuaian bersama.</td></tr>
+          <tr><td><b>3. Gaya membimbing</b></td><td class="mono">5 mnt</td><td>Tanyakan: <i lang="en">"How many PhD students do you currently supervise? How often do we meet, and do you prefer written drafts or verbal feedback?"</i></td></tr>
+          <tr><td><b>4. Program &amp; pendanaan</b></td><td class="mono">5 mnt</td><td>Tanyakan: <i lang="en">"What coursework or lab training is required? Which scholarship deadlines or active grant openings fit this start date?"</i></td></tr>
+          <tr><td><b>5. Pengembangan karier</b></td><td class="mono">5 mnt</td><td>Tanyakan: <i lang="en">"What are your expectations for publications, conferences, and teaching? Where have past supervisees gone next?"</i></td></tr>
+          <tr><td><b>6. Penutup &amp; langkah berikutnya</b></td><td class="mono">2–3 mnt</td><td>Ucapkan terima kasih, pastikan mereka terbuka untuk langkah berikutnya, dan tanyakan: <i lang="en">"Should I now draft or refine a full research proposal?"</i></td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <div class="checklist" id="ck-supervisor" data-section="supervisor">
+      <div class="checklist-head"><h3><span class="sec-num">2.5</span> Checklist Bagian 02: Menyaring &amp; Mewawancarai Pembimbing</h3><span class="tag" id="badge-supervisor">0 / 9 selesai</span></div>
+      <label class="ck"><input type="checkbox" data-id="sup-1"><div><b>Cek apakah universitas tujuan mewajibkan EOI resmi sebelum mengirim email</b><span>Beberapa institusi (mis. UQ) memakai portal Expression of Interest sebagai langkah pertama.</span></div></label>
+      <label class="ck"><input type="checkbox" data-id="sup-2"><div><b>Pilih 3–8 calon pembimbing dan baca 2–3 makalah terakhir mereka</b><span>Sertakan PI senior dan asisten profesor muda yang aktif, yang mungkin punya waktu lebih longgar.</span></div></label>
+      <label class="ck"><input type="checkbox" data-id="sup-3"><div><b>Minta mentor akademik memperkenalkan Anda jika memungkinkan</b><span>Perkenalan singkat dari pembimbing S2 atau dosen wali menaikkan tingkat balasan secara signifikan.</span></div></label>
+      <label class="ck"><input type="checkbox" data-id="sup-4"><div><b>Kirim email personal 8–12 minggu (atau 6–12 bulan untuk hibah) sebelum tenggat</b><span>Sebut satu makalah spesifik, cantumkan IPK dengan skala penuh (X/Y), dan lampirkan CV PDF 1–2 halaman.</span></div></label>
+      <label class="ck"><input type="checkbox" data-id="sup-5"><div><b>Tunggu 1–2 minggu sebelum mengirim satu pengingat yang sopan</b><span>Diam biasanya karena kotak masuk yang penuh, bukan karena kemampuan Anda; jangan membanjiri dengan tindak lanjut.</span></div></label>
+      <label class="ck"><input type="checkbox" data-id="sup-6"><div><b>Periksa stabilitas pembimbing &amp; karier alumni sebelum panggilan</b><span>Cek ResearchGate, LinkedIn, atau bicara dengan mahasiswa PhD di kelompok tersebut jika memungkinkan.</span></div></label>
+      <label class="ck"><input type="checkbox" data-id="sup-7"><div><b>Siapkan agenda pertemuan dua arah 30 menit dan 5–6 pertanyaan</b><span>Bahas frekuensi pertemuan, gaya umpan balik, ekspektasi publikasi, dan jalur pendanaan.</span></div></label>
+      <label class="ck"><input type="checkbox" data-id="sup-8"><div><b>Evaluasi tanda bahaya dari panggilan dan bandingkan catatan antarpembimbing</b><span>Perhatikan antusiasme yang tulus, penjelasan masukan topik yang jelas, dan kapasitas yang realistis.</span></div></label>
+      <label class="ck"><input type="checkbox" data-id="sup-9"><div><b>Konfirmasi langkah berikutnya yang disepakati (draf proposal, lamaran resmi, atau nominasi pendanaan)</b><span>Catat jadwal yang disepakati dalam email terima kasih singkat tepat setelah pertemuan.</span></div></label>
+    </div>
+  </section>
+
+  <!-- ===================== BAGIAN 3 ===================== -->
+  <section class="part" id="bagian-3">
+    <div class="part-head">
+      <div class="eyebrow">Bagian 03 · Desain Riset</div>
+      <h2>Menemukan dan Memilih Topik Riset PhD yang Layak</h2>
+      <p class="muted">Memilih topik PhD bukan soal menemukan satu judul disertasi "sempurna" di hari pertama, tetapi membangun daftar pertanyaan riset yang berada di titik temu rasa ingin tahu yang tulus, celah literatur yang nyata, akses data, dan peluang pendanaan.</p>
+    </div>
+
+    <div class="sec" id="s3-1">
+      <div class="sec-head"><span class="sec-num">3.1</span><h3>Pendekatan Jamak &amp; Berangkat dari Inspirasi Sendiri</h3></div>
+      <p>Jangan memburu satu topik yang "sempurna". Kembangkan <b>3–5 kandidat topik yang layak</b> sekaligus, berangkat dari daftar awal 5–7 topik. Mengembangkan beberapa pilihan hampir tidak lebih lama daripada mengejar satu, dan ini melindungi Anda dari hambatan akses data, peneliti lain yang lebih dulu menerbitkan di ceruk Anda, atau calon pembimbing yang lebih menyukai sudut pandang lain. Jika departemen menawarkan dana untuk proyek yang 80% sejalan dengan salah satu topik Anda, cadangan topik membuat penyesuaian jadi mudah.</p>
+      <div class="note"><strong>Berangkat dari inspirasi sendiri, berpijak pada 10 makalah terbaru</strong><p class="small">Jangan serahkan seluruh pilihan topik kepada pembimbing sebelum Anda sendiri membaca literatur. Anda yang akan memikul kerja intelektual harian selama 3–4 tahun lebih; di masa sulit, rasa ingin tahu dan relevansi karier yang membuat Anda bertahan. Sebelum memutuskan, baca 10 artikel peer-review dari 3 tahun terakhir di bidang sasaran, catat keterbatasan yang mereka sebutkan, dan uji apakah setiap ide yang muncul cukup dalam untuk tesis 3–4 tahun.</p></div>
+    </div>
+
+    <div class="sec" id="s3-2">
+      <div class="sec-head"><span class="sec-num">3.2</span><h3>Menemukan Celah Riset &amp; Mempersempit Ide yang Luas</h3></div>
+      <p>Celah riset yang nyata bukan sekadar "belum ada yang meneliti X", melainkan hal spesifik dan bermakna yang belum diketahui, yang jawabannya memajukan teori atau praktik. Cari lima pola celah berikut saat membaca abstrak:</p>
+      <div class="grid3">
+        <div class="card"><span class="tag">1</span><h4>Celah geografis</h4><p class="small">Bukti yang ada berasal dari Amerika Utara atau Eropa Barat, sementara pasar berkembang atau kawasan lain (mis. Timur Tengah atau Asia Tenggara) belum banyak diteliti.</p></div>
+        <div class="card"><span class="tag">2</span><h4>Celah metodologis</h4><p class="small">Studi sebelumnya mengandalkan wawancara kualitatif kecil atau survei swalapor; data eksperimen, longitudinal, atau kuantitatif berskala besar belum ada.</p></div>
+        <div class="card"><span class="tag">3</span><h4>Celah temporal</h4><p class="small">Bukti hanya mencakup kondisi sebelum 2020, sehingga dampak pasca-COVID, pasca-Brexit, atau setelah perubahan regulasi belum terukur.</p></div>
+        <div class="card"><span class="tag">4</span><h4>Celah populasi</h4><p class="small">Fenomena diuji pada sampel dewasa umum, sementara subkelompok tertentu (mis. mahasiswa generasi pertama, ibu tunggal, UKM manufaktur) terabaikan.</p></div>
+        <div class="card"><span class="tag">5</span><h4>Celah integrasi</h4><p class="small">Dua bidang yang bersebelahan memiliki model atau temuan relevan yang belum pernah disintesis bersama.</p></div>
+        <div class="card" style="background:var(--accent-soft);border-color:transparent"><h4>Rumus celah satu kalimat</h4><p class="small">"Meskipun riset telah membuktikan <b>[pengetahuan yang sudah ada]</b>, bukti tentang <b>[hal spesifik yang belum diketahui]</b> pada <b>[populasi, geografi, atau konteks spesifik]</b> masih belum memadai."</p></div>
+      </div>
+      <h4>Mempersempit topik: contoh lemah vs. terfokus</h4>
+      <p class="small muted">Pilih contoh bidang untuk melihat bagaimana landasan teori, populasi spesifik, geografi, dan metode analisis mengubah judul yang luas menjadi topik PhD yang siap diajukan ke pembimbing.</p>
+      <div class="filters" role="group" aria-label="Contoh bidang">
+        <button class="btn" data-ex="housing" aria-pressed="true">Kebijakan publik &amp; perumahan</button>
+        <button class="btn" data-ex="tax" aria-pressed="false">Ekonomi &amp; fintech</button>
+        <button class="btn" data-ex="mental" aria-pressed="false">Kesehatan mental digital</button>
+      </div>
+      <div class="ex" id="ex-display"></div>
+    </div>
+
+    <div class="sec" id="s3-3">
+      <div class="sec-head"><span class="sec-num">3.3</span><h3>Kerangka Penyempurnaan Topik 7 Langkah</h3></div>
+      <p>Bergerak sistematis dari bidang yang luas ke pertanyaan riset satu paragraf yang siap didanai, dalam sekitar dua sampai tiga minggu kerja terfokus:</p>
+      <ol class="steps">
+        <li><span class="k">1</span><div><b>Petakan minat terhadap kebutuhan pasar &amp; pendanaan</b> <span class="meta">2–3 jam → 3–5 bidang</span><p class="small muted">Daftar 5–10 topik yang benar-benar Anda minati, lalu bandingkan dengan iklan lowongan akademik, lowongan industri yang mensyaratkan PhD, dan hibah dewan riset yang aktif. Contoh: Marcus membandingkan biologi kelautan (12 lowongan akademik global) dengan energi terbarukan (340+ posisi industri bergelar PhD) dan pemodelan iklim (dana federal $2,3 miliar), lalu memilih integrasi energi terbarukan dengan pemodelan iklim.</p></div></li>
+        <li><span class="k">2</span><div><b>Pindai cepat 50 abstrak dalam 2 jam</b> <span class="meta">2 jam → peta riset</span><p class="small muted">Urutkan jurnal utama dan Google Scholar berdasarkan sitasi terbaru, dan pasang timer 2 menit per abstrak. Catat hanya tiga kolom di spreadsheet: (1) pertanyaan inti, (2) metode &amp; data, dan (3) keterbatasan/riset lanjutan yang disebutkan.</p></div></li>
+        <li><span class="k">3</span><div><b>Temukan 2–3 celah spesifik &amp; periksa persaingan</b> <span class="meta">1–2 jam (+1–2 hari/topik)</span><p class="small muted">Rumuskan 2–3 celah memakai lima pola celah. Luangkan 1–2 hari per topik untuk memeriksa apakah ada tim lain yang terus menerbitkan makalah serupa, atau apakah ada program PhD baru (2–3 tahun terakhir) yang menandakan kebutuhan sehat tanpa kejenuhan. Pijakkan pemikiran pada teoretikus pendiri bidang tersebut.</p></div></li>
+        <li><span class="k">4</span><div><b>Uji kelayakan (4 cek realitas)</b> <span class="meta">3–4 jam → cek realitas</span><p class="small muted"><b>Akses data:</b> kirim email ke 2–3 organisasi sejak awal untuk menanyakan apakah mereka berbagi data dengan peneliti. <b>Waktu:</b> tinjauan pustaka (6–12 bln), pengumpulan data (12–24 bln), analisis (6–18 bln), penulisan (12–18 bln); jika pengumpulan data butuh 36+ bulan, persempit cakupan. <b>Keterampilan teknis:</b> bisakah Anda mempelajarinya tepat waktu (statistik R = bisa; bedah jaringan otak = tidak)? <b>Anggaran:</b> hitung biaya perangkat lunak, peralatan, perjalanan, honor responden, dan konferensi (tambahan $50 ribu+ butuh hibah lab khusus).</p></div></li>
+        <li><span class="k">5</span><div><b>Cek keselarasan dengan pendanaan</b> <span class="meta">1–2 jam → keselarasan</span><p class="small muted">Cari penghargaan terbaru di NSF, NIH, ERC, UKRI, atau dewan riset nasional dengan kata kunci yang cocok. Fokus pada call terbaru (prioritas bergeser setiap 3–5 tahun), tanpa mengejar tren yang tidak Anda minati.</p></div></li>
+        <li><span class="k">6</span><div><b>Validasi dengan 5–8 calon pembimbing</b> <span class="meta">2–3 minggu → cek pakar</span><p class="small muted">Kirim email ringkas 100–150 kata yang merujuk 2–3 makalah terbaru mereka untuk menguji minat dan kecocokan sebelum menyusun proposal lengkap.</p></div></li>
+        <li><span class="k">7</span><div><b>Sempurnakan menjadi pitch riset satu paragraf</b> <span class="meta">1–2 jam → pitch akhir</span><p class="small muted">Satukan fenomena, populasi, metodologi, celah, dan signifikansi. Lihat bagaimana Maria beralih dari "Media sosial memengaruhi kesehatan mental" menjadi: meneliti fitur Instagram (Stories, Reels, DM) dan gejala kecemasan pada mahasiswa generasi pertama lewat desain longitudinal metode campuran selama dua tahun, untuk merancang intervensi digital yang tepat sasaran.</p></div></li>
+      </ol>
+    </div>
+
+    <div class="sec" id="s3-4">
+      <div class="sec-head"><span class="sec-num">3.4</span><h3>Kriteria "Big 5", 4 Jebakan &amp; Kapan Topik Harus Jelas</h3></div>
+      <div class="grid2">
+        <div class="note good"><strong>Kriteria evaluasi "Big 5" (Grad Coach)</strong><ul class="small">
+          <li><b>Orisinalitas &amp; kebaruan:</b> celah yang jelas, wawasan empiris baru, atau jembatan metodologis yang unik.</li>
+          <li><b>Nilai &amp; signifikansi:</b> siapa yang diuntungkan dari jawabannya, dan bagaimana tepatnya?</li>
+          <li><b>Akses data &amp; peralatan:</b> akses realistis ke populasi, arsip, alat lab, dan izin perlindungan data.</li>
+          <li><b>Waktu &amp; penjadwalan:</b> durasi tiap fase yang realistis, musim kerja lapangan, dan cadangan waktu.</li>
+          <li><b>Kepatuhan etika:</b> cek kebijakan komite etik/IRB universitas sejak awal, hindari "zona abu-abu" berisiko tinggi yang memicu penolakan berlapis.</li></ul></div>
+        <div class="note bad"><strong>4 jebakan dalam memilih topik</strong><ul class="small">
+          <li><b>Jebakan "menyelamatkan dunia":</b> mencoba memecahkan seluruh perubahan iklim, bukan satu kepingan teka-teki yang bisa dijawab.</li>
+          <li><b>Jebakan "ikut tren":</b> memaksakan kata kunci populer (AI, blockchain) tanpa minat atau kecocokan yang tulus.</li>
+          <li><b>Jebakan "celah sempurna":</b> mengira bidang yang belum diteliti adalah tambang emas, padahal datanya mustahil didapat atau temuannya remeh.</li>
+          <li><b>Jebakan "pahlawan tunggal":</b> pertanyaan yang tidak diteliti siapa pun di dunia akademik biasanya tanda bahaya, bukan kecemerlangan.</li></ul></div>
+      </div>
+      <h4>Kapan kejelasan topik dibutuhkan</h4>
+      <div class="tbl"><table style="min-width:560px">
+        <thead><tr><th>Tahap lamaran</th><th>Waktu</th><th>Kejelasan yang dibutuhkan</th></tr></thead>
+        <tbody>
+          <tr><td>Lamaran awal &amp; kontak pembimbing</td><td>6–8 bulan sebelum tenggat</td><td>Bidang luas plus 2–3 minat riset spesifik</td></tr>
+          <tr><td>Statement of Purpose</td><td>2–3 bulan sebelum tenggat</td><td>Arah riset terfokus plus rencana metodologi</td></tr>
+          <tr><td>Wawancara seleksi</td><td>1 bulan sebelum wawancara</td><td>Pertanyaan riset spesifik dan penguasaan mendalam atas makalah terbaru</td></tr>
+          <tr><td>Tahun pertama PhD</td><td>Akhir tahun ke-1</td><td>Pertanyaan riset disertasi yang matang dan sudah lolos kaji etik</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <div class="sec" id="s3-5">
+      <div class="sec-head"><span class="sec-num">3.5</span><h3>Skor Kelayakan Topik Interaktif (/80)</h3></div>
+      <p>Terapkan pendekatan jamak: bandingkan hingga tiga kandidat topik dengan delapan kriteria berbobot dari ApplyKite. Topik dengan skor <b>60+</b> adalah kandidat kuat; di bawah <b>50</b> perlu disempurnakan atau diganti.</p>
+      <div class="card">
+        <div class="filters" role="group" aria-label="Pilih kandidat topik">
+          <button class="btn" data-slot="0" aria-pressed="true">Topik 1</button>
+          <button class="btn" data-slot="1" aria-pressed="false">Topik 2</button>
+          <button class="btn" data-slot="2" aria-pressed="false">Topik 3</button>
+        </div>
+        <label for="topic-title">Judul kerja kandidat topik yang aktif<input type="text" id="topic-title"></label>
+        <div class="sc">
+          <div id="crit-list"></div>
+          <div style="display:grid;gap:10px;align-content:start">
+            <div class="small muted">Skor kelayakan tertimbang</div>
+            <div class="total" id="sc-total">0 / 80</div>
+            <span class="tag" id="sc-verdict">Belum lengkap</span>
+            <p class="small" id="sc-note">Nilai semua 8 kriteria dari 1 (lemah) sampai 5 (kuat).</p>
+            <div class="small muted" style="margin-top:6px">Rincian poin tertimbang (diperoleh vs. maksimum)</div>
+            <div id="sc-bars" style="display:grid;gap:6px"></div>
+            <p class="small muted">Poin mentah maksimum 85 (bobot total 17 × 5), lalu dinormalkan ke skala 80 agar sesuai ambang 60/50.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="checklist" id="ck-topic" data-section="topic">
+      <div class="checklist-head"><h3>Checklist Bagian 03: Kesiapan Topik Riset</h3><span class="tag" id="badge-topic">0 / 9 selesai</span></div>
+      <label class="ck"><input type="checkbox" data-id="top-1"><div><b>Susun daftar jamak 3–5 kandidat topik yang benar-benar menginspirasi</b><span>Hindari terpaku pada satu topik agar punya pilihan kuat saat menyesuaikan dengan pendanaan atau pembimbing.</span></div></label>
+      <label class="ck"><input type="checkbox" data-id="top-2"><div><b>Pindai cepat 50 abstrak terbaru dan baca 10 makalah secara mendalam</b><span>Catat pertanyaan inti, metode, dan keterbatasan di spreadsheet literatur yang terstruktur.</span></div></label>
+      <label class="ck"><input type="checkbox" data-id="top-3"><div><b>Rumuskan 2–3 celah riset dengan rumus celah satu kalimat</b><span>Tentukan apakah celahnya geografis, metodologis, temporal, populasi, atau integratif.</span></div></label>
+      <label class="ck"><input type="checkbox" data-id="top-4"><div><b>Pastikan akses data/peralatan dan tidak ada kejenuhan dari peneliti lain</b><span>Hubungi 2–3 organisasi pemilik data sejak awal dan pastikan studi yang ada masih menyisakan ruang kebaruan.</span></div></label>
+      <label class="ck"><input type="checkbox" data-id="top-5"><div><b>Cek kelayakan waktu 3–4 tahun, anggaran, dan keterampilan teknis</b><span>Pastikan pengumpulan data muat dalam 12–24 bulan dengan biaya yang realistis.</span></div></label>
+      <label class="ck"><input type="checkbox" data-id="top-6"><div><b>Saring risiko etika/IRB setiap kandidat topik</b><span>Tandai sejak awal kebutuhan izin kelompok rentan atau aturan data sensitif agar proposal tidak ditolak.</span></div></label>
+      <label class="ck"><input type="checkbox" data-id="top-7"><div><b>Selaraskan kata kunci topik dengan hibah dewan riset terbaru &amp; kebutuhan karier</b><span>Periksa silang penghargaan NSF, NIH, ERC, UKRI, atau dewan riset nasional dalam 2–3 tahun terakhir.</span></div></label>
+      <label class="ck"><input type="checkbox" data-id="top-8"><div><b>Pastikan semua kandidat topik mencapai skor di atas 60/80</b><span>Sempurnakan atau ganti pilihan dengan skor di bawah 50 sebelum menulis Statement of Purpose.</span></div></label>
+      <label class="ck"><input type="checkbox" data-id="top-9"><div><b>Tulis pitch riset satu paragraf yang terfokus dan validasi dengan pembimbing</b><span>Cantumkan fenomena, populasi, metodologi, celah spesifik, serta nilai praktis/teoretis.</span></div></label>
+    </div>
+  </section>
+
+  <section class="sec">
+    <h3>Simpan, Ekspor &amp; Sumber</h3>
+    <div class="filters">
+      <button class="btn primary" id="export" type="button">Unduh ringkasan persiapan (.txt)</button>
+      <button class="btn danger" id="reset" type="button">Hapus progres tersimpan</button>
+      <span id="reset-confirm" hidden><span class="small">Yakin? Checklist, draf email, dan skor topik akan dikosongkan.</span>
+        <button class="btn danger" id="reset-yes" type="button">Ya, hapus</button>
+        <button class="btn" id="reset-no" type="button">Batal</button></span>
+    </div>
+    <div class="live" id="save-feedback"></div>
+    <p class="small muted">Sumber: disintesis dari panduan persiapan FindAPhD (Morgan James tentang pendanaan PhD &amp; stipendium UKRI; Taru Medha tentang menghubungi pembimbing), PforPhD (Zubair Hussain tentang beasiswa penuh global dan tenggatnya), PhD Atlas (metode pencarian dan verifikasi portal resmi), University of Cambridge BBSRC DTP (panduan singkat menulis email ke peneliti utama), The University of Queensland (saran pembimbing UQ tentang kontak awal dan pertemuan pertama), ApplyKite (Shana tentang kerangka 7 langkah dan skor kelayakan topik), PhD Centre (Dr Robert S tentang pendekatan jamak dan checklist topik), serta Grad Coach (Derek Jansen &amp; Eunice Rautenbach tentang kriteria Big 5). Disadur ke bahasa Indonesia dari buku panduan NotebookLM.</p>
+  </section>
+
+  <footer class="site-footer">Developed by <a href="https://its.id/baihaqi" target="_blank" rel="noopener noreferrer">Baihaqi</a> based on chat with <a href="https://claude.ai" target="_blank" rel="noopener noreferrer">Claude.ai</a></footer>
+</div>
+
+<script>
+const FUNDING=[
+ {c:"DE · Jerman",s:"DAAD Research Grants (Doktoral)",m:"Scholarship",r:"Europe",st:"€1.350–1.500/bln",d:"15 Okt 2026",n:"Asuransi, tunjangan perjalanan, tanpa SPP. Wajib surat komitmen pembimbing Jerman sejak awal. Portal: daad.de"},
+ {c:"UK · Inggris",s:"Commonwealth PhD Scholarships",m:"Scholarship",r:"UK",st:"£1.378–1.690/bln",d:"Okt–Nov 2026",n:"SPP penuh, tiket, visa & biaya kesehatan untuk warga negara Persemakmuran berkembang lewat lembaga nominasi negara asal. Indonesia bukan anggota Persemakmuran. Portal: cscuk.fcdo.gov.uk"},
+ {c:"UK · Inggris",s:"UKRI Doctoral Training Partnerships (DTP)",m:"Studentship",r:"UK",st:"£19.237–21.805/thn",d:"Jan–Mar 2027",n:"Stipendium hidup bebas pajak plus SPP (cek kelayakan SPP domestik vs. internasional per call). Portal: findaphd.com"},
+ {c:"KR · Korea Selatan",s:"Global Korea Scholarship (GKS)",m:"Scholarship",r:"Asia-Pacific",st:"KRW 1.000.000/bln (~$750)",d:"Feb–Mar 2027",n:"4 tahun (1 thn bahasa Korea + 3 thn PhD), SPP penuh, tiket, asuransi, uang kedatangan KRW 200 ribu; 1.820 kuota pascasarjana. Portal: niied.go.kr"},
+ {c:"JP · Jepang",s:"MEXT Research Student Scholarship",m:"Scholarship",r:"Asia-Pacific",st:"¥145.000/bln (~$950)",d:"Mei–Jun (siklus 2027)",n:"SPP penuh, tiket PP, tanpa syarat IELTS. Jalur Kedubes dan rekomendasi universitas. Portal: Kedutaan Besar Jepang"},
+ {c:"CN · Tiongkok",s:"Chinese Government Scholarship (CSC)",m:"Scholarship",r:"Asia-Pacific",st:"CNY 3.000–3.500/bln",d:"Jan–Apr 2027 (dibuka Des)",n:"SPP penuh, asrama universitas, asuransi kesehatan; Type A (lewat lembaga negara asal) & Type B (langsung ke 280+ universitas). Portal: campuschina.org"},
+ {c:"AU · Australia",s:"Australia Awards Scholarships",m:"Scholarship",r:"Asia-Pacific",st:"AUD 29.710/thn",d:"30 Apr setiap tahun",n:"SPP penuh, tiket PP, asuransi OSHC, uang kedatangan AUD 5.000; wajib kembali ke negara asal 2 tahun. Portal: oasis.dfat.gov.au"},
+ {c:"AU · Australia",s:"Research Training Program (RTP)",m:"Studentship",r:"Asia-Pacific",st:"AUD 32.000–42.754/thn",d:"Bergulir (per kampus)",n:"Tersedia di 43 universitas Australia; menanggung stipendium hidup dan SPP. Portal: halaman HDR universitas tujuan"},
+ {c:"CH · Swiss",s:"Swiss Gov. Excellence (SGES)",m:"Scholarship",r:"Europe",st:"CHF 1.920/bln",d:"Agt–Des 2026",n:"Daftar lewat Kedubes Swiss di negara asal; beasiswa PhD atau pascadoktoral. Portal: Kedutaan Besar Swiss"},
+ {c:"CH · Swiss",s:"Posisi doktoral ETH Zurich & EPFL",m:"Employment",r:"Europe",st:"CHF 4.390–4.460/bln bruto",d:"Bergulir sepanjang tahun",n:"300–500 posisi doktoral terbuka terus-menerus; kontrak kerja bergaji. Portal: jobs.ethz.ch"},
+ {c:"NL · Belanda",s:"PhD universitas Belanda / NWO (promovendus)",m:"Employment",r:"Europe",st:"€2.872–3.670/bln bruto",d:"Bergulir sepanjang tahun",n:"Gaji dan tunjangan pegawai penuh, tanpa SPP, biasanya tanpa syarat IELTS formal. Portal: academictransfer.com & euraxess.ec.europa.eu"},
+ {c:"SE · Swedia",s:"Posisi doktorand Swedia",m:"Employment",r:"Europe",st:"SEK 30.000–36.000/bln bruto",d:"Bergulir sepanjang tahun",n:"Kontrak kerja peneliti doktoral, tanpa SPP. Lamar dalam 7 hari pertama sejak iklan terbit. Portal: academicpositions.com"},
+ {c:"EU · Multinegara",s:"MSCA Doctoral Networks",m:"Employment",r:"Europe",st:"Gaji kompetitif standar UE",d:"Bergulir per jaringan",n:"Hingga 4 tahun (5 tahun untuk Joint Doctorate). Aturan mobilitas ketat: maks 12 bulan di negara tuan rumah dalam 36 bulan terakhir. Lamar lowongan di EURAXESS"},
+ {c:"NZ · Selandia Baru",s:"Manaaki New Zealand Scholarship",m:"Scholarship",r:"Asia-Pacific",st:"NZD 615/minggu + SPP",d:"10 Apr 2027",n:"SPP penuh plus tunjangan hidup mingguan untuk negara mitra yang memenuhi syarat. Portal: mfat.govt.nz"},
+ {c:"US · Amerika Serikat",s:"Program Fulbright untuk warga asing",m:"Scholarship",r:"Americas",st:"Bervariasi per negara/tingkat",d:"Bervariasi per negara",n:"Warga non-AS mendaftar lewat komisi Fulbright, yayasan, atau Kedubes AS di negara asal (di Indonesia: AMINEF), bukan langsung ke universitas. Portal: foreign.fulbrightonline.org"}
+];
+const MODEL_LBL={Scholarship:"Beasiswa",Employment:"Kontrak kerja",Studentship:"Studentship"};
+const MODEL_TAG={Scholarship:"",Employment:"ok",Studentship:"est"};
+const EXAMPLES={
+ housing:{wt:"Masalah tunawisma di negara berkembang: peran regulasi pemerintah.",ww:"Mencakup seluruh kelompok ekonomi (\"negara berkembang\") dan menyatukan semua \"regulasi pemerintah\" secara kabur, tanpa unit analisis yang terukur, lensa teori, atau batas kerja lapangan 3 tahun yang layak.",st:"Pengaruh ketersediaan perumahan bersubsidi terhadap stratifikasi sosial: perbandingan dua wilayah di Inggris.",sw:"Mempersempit fenomena (ketersediaan perumahan bersubsidi), menetapkan hasil teoretis yang konkret (stratifikasi sosial), dan membangun desain komparatif yang layak (dua wilayah di Inggris) dengan data regional yang mudah diakses."},
+ tax:{wt:"Pengaruh sistem perpajakan terhadap tingkat pertumbuhan UKM.",ww:"Terlalu umum: setiap instrumen pajak dan setiap sektor UKM berperilaku berbeda, sehingga hubungan sebab-akibat mustahil diisolasi dan berisiko tumpang tindih dengan ratusan makalah makroekonomi yang sudah ada.",st:"Ability-to-pay dan kurva Laffer: pengaruh praktik pajak progresif di Inggris terhadap niat relokasi perusahaan fintech.",sw:"Berpijak eksplisit pada model ekonomi yang dinamai (ability-to-pay, kurva Laffer), mengisolasi satu mekanisme kebijakan (pajak progresif), satu yurisdiksi (Inggris), dan satu hasil industri yang terukur (niat relokasi fintech)."},
+ mental:{wt:"Media sosial memengaruhi kesehatan mental mahasiswa.",ww:"Menyatakan kebenaran umum, bukan celah. Memperlakukan \"media sosial\" dan \"kesehatan mental\" sebagai satu kesatuan mengabaikan mekanisme platform dan tidak mengisolasi siapa yang paling rentan.",st:"Fitur penggunaan Instagram (Stories, Reels, DM) dan gejala kecemasan pada mahasiswa generasi pertama: studi longitudinal metode campuran selama dua tahun.",sw:"Menunjukkan celah populasi (mahasiswa generasi pertama dengan modal sosial keluarga terbatas), memilah mekanisme platform yang spesifik, menetapkan desain metode campuran 2 tahun yang layak, dan menghasilkan wawasan intervensi yang bisa ditindaklanjuti."}
+};
+const CRIT=[
+ {id:"interest",l:"Minat &amp; gairah pribadi",s:"Minat pribadi",w:3},
+ {id:"gap",l:"Celah riset yang jelas",s:"Celah riset",w:3},
+ {id:"data",l:"Data dapat diakses dalam waktu studi",s:"Akses data",w:3},
+ {id:"supervisor",l:"Minat pembimbing sudah terkonfirmasi",s:"Minat pembimbing",w:2},
+ {id:"funding",l:"Keselarasan dengan pendanaan",s:"Pendanaan",w:2},
+ {id:"market",l:"Kebutuhan pasar karier",s:"Pasar karier",w:2},
+ {id:"skills",l:"Kelayakan teknis",s:"Kelayakan teknis",w:1},
+ {id:"novelty",l:"Kebaruan &amp; orisinalitas",s:"Kebaruan",w:1}
+];
+const RAW_MAX=CRIT.reduce((a,c)=>a+c.w*5,0);
+const blankScores=()=>Object.fromEntries(CRIT.map(c=>[c.id,0]));
+const DEFAULT={checks:{},email:{supervisor:"",area:"",name:"",degree:"",paper:"",fit:"",idea:"",funding:"scholarship",start:"September 2027"},slot:0,
+ topics:[{title:"Kandidat Topik 1 (contoh: pajak progresif & relokasi fintech di Inggris)",scores:{interest:4,gap:4,data:4,supervisor:3,funding:4,market:4,skills:4,novelty:4}},{title:"Kandidat Topik 2",scores:blankScores()},{title:"Kandidat Topik 3",scores:blankScores()}]};
+const KEY="panduan-phd-v1";
+let S=JSON.parse(JSON.stringify(DEFAULT));
+try{const raw=localStorage.getItem(KEY);if(raw){const o=JSON.parse(raw);S=Object.assign(S,o);}}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const esc=t=>String(t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+/* Funding explorer */
+let model="all";
+function renderFunding(){
+  const q=$('#f-q').value.trim().toLowerCase(),rg=$('#f-region').value;
+  const rows=FUNDING.filter(r=>(model==="all"||r.m===model)&&(rg==="all"||r.r===rg)&&(!q||(r.c+' '+r.s+' '+r.st+' '+r.n+' '+r.d).toLowerCase().includes(q)));
+  $('#f-body').innerHTML=rows.map(r=>`<tr><td><b>${esc(r.c)}</b><br>${esc(r.s)}</td><td><span class="tag ${MODEL_TAG[r.m]}">${MODEL_LBL[r.m]}</span></td><td class="mono"><b>${esc(r.st)}</b></td><td class="mono">${esc(r.d)}</td><td>${esc(r.n)}</td></tr>`).join('');
+  $('#f-count').textContent=`Menampilkan ${rows.length} dari ${FUNDING.length} program`;
+  $('#f-empty').hidden=rows.length>0;
+}
+$('#f-q').addEventListener('input',renderFunding);$('#f-region').addEventListener('input',renderFunding);
+$$('[data-model]').forEach(b=>b.addEventListener('click',()=>{model=b.dataset.model;$$('[data-model]').forEach(x=>x.setAttribute('aria-pressed',x===b));renderFunding()}));
+
+/* Email drafter (English output) */
+const EM=["supervisor","area","name","degree","paper","fit","idea","funding","start"];
+function hydrateEmail(){EM.forEach(k=>{const el=$('#em-'+k);if(el)el.value=S.email[k]??''});}
+function renderEmail(){
+  EM.forEach(k=>S.email[k]=$('#em-'+k).value);
+  const v=(k,f)=>S.email[k]&&S.email[k].trim()?S.email[k].trim():f;
+  const sup=v('supervisor','[Dr/Professor Surname]'),area=v('area','[Specific Research Area]'),name=v('name','[Your Full Name]'),degree=v('degree','[Your Degree, GPA X/Y, University]'),paper=v('paper','[specific recent paper or active grant project]'),fit=v('fit',"My recent research project used [specific method/lab skill], which connects closely to your group's methodology."),idea=v('idea','[concise 1-line research question]'),start=v('start','September 2027');
+  let fl=`I am preparing an application for external scholarship funding and have attached my 2-page CV alongside a 1-page working research outline for your consideration.`;
+  if(S.email.funding==='grant')fl=`I have attached my 2-page academic CV and would be grateful to know whether you expect to have funded PhD openings in your group for ${start}.`;
+  else if(S.email.funding==='advertised')fl=`I am preparing my application for your advertised funded PhD project and have attached my 2-page academic CV for reference.`;
+  const subj=`Subject: Prospective PhD student interested in ${area}`;
+  const body=`Dear ${sup},\n\nMy name is ${name}, and I hold a ${degree}. I am writing to enquire about pursuing a PhD under your supervision starting in ${start}.\n\nI was particularly drawn to ${paper}, and I am keen to explore a doctoral project focused on ${idea}. ${fit}\n\n${fl}\n\nIf you are accepting new doctoral students for ${start}, would you be open to a brief 15-minute video call to discuss potential alignment?\n\nThank you for your time and consideration.\n\nKind regards,\n${name}`;
+  $('#em-subject').textContent=subj;$('#em-body').textContent=body;
+  $('#em-words').textContent=body.trim().split(/\s+/).filter(Boolean).length+' words';
+  save();
+}
+EM.forEach(k=>$('#em-'+k).addEventListener('input',renderEmail));
+$('#em-sample').addEventListener('click',()=>{S.email={supervisor:"Dr Patel",area:"Grid-Scale Solid-State Battery Degradation",name:"Amina Rahman",degree:"MSc Chemical Engineering (GPA 3.8/4.0, University of Leeds)",paper:"your 2025 paper on silicon-anode solid-electrolyte interphase cracking",fit:"In my Master's thesis, I used electrochemical impedance spectroscopy to model lithium plating under fast-charging cycles.",idea:"quantifying thermal degradation thresholds in hybrid solid-state cells",funding:"scholarship",start:"September 2027"};hydrateEmail();renderEmail();});
+$('#em-clear').addEventListener('click',()=>{S.email=JSON.parse(JSON.stringify(DEFAULT.email));hydrateEmail();renderEmail();});
+$('#em-copy').addEventListener('click',()=>{
+  const txt=$('#em-subject').textContent+'\n\n'+$('#em-body').textContent,fb=$('#em-feedback');
+  const fallback=()=>{const r=document.createRange();r.selectNodeContents($('#em-preview'));const s=getSelection();s.removeAllRanges();s.addRange(r);fb.textContent='Teks sudah disorot; tekan Ctrl/Cmd+C untuk menyalin.';};
+  try{navigator.clipboard.writeText(txt).then(()=>{fb.textContent='Email tersalin ke clipboard.'}).catch(fallback)}catch(e){fallback()}
+  setTimeout(()=>fb.textContent='',4000);
+});
+
+/* Topic examples */
+function showEx(k){const d=EXAMPLES[k];$$('[data-ex]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.ex===k));
+  $('#ex-display').innerHTML=`<div class="note bad"><strong>Topik lemah / terlalu luas</strong><p class="small"><b>${esc(d.wt)}</b></p><p class="small">${esc(d.ww)}</p></div><div class="note good"><strong>Topik terfokus, siap diteliti</strong><p class="small"><b>${esc(d.st)}</b></p><p class="small">${esc(d.sw)}</p></div>`;}
+$$('[data-ex]').forEach(b=>b.addEventListener('click',()=>showEx(b.dataset.ex)));
+
+/* Scorecard */
+const rawTotal=t=>CRIT.reduce((a,c)=>a+(Number(t.scores[c.id])||0)*c.w,0);
+const score80=t=>Math.round(rawTotal(t)/RAW_MAX*80);
+function renderScore(){
+  const t=S.topics[S.slot];
+  $$('[data-slot]').forEach(b=>b.setAttribute('aria-pressed',Number(b.dataset.slot)===S.slot));
+  $('#topic-title').value=t.title||'';
+  $('#crit-list').innerHTML=CRIT.map(c=>{const cur=Number(t.scores[c.id])||0;
+    return `<div class="crit"><div><b>${c.l}</b> <span class="small muted">(bobot ×${c.w})</span></div><div class="rate" role="group" aria-label="Nilai ${c.s}">${[1,2,3,4,5].map(n=>`<button type="button" data-c="${c.id}" data-n="${n}" aria-pressed="${cur===n}">${n}</button>`).join('')}</div><div class="pts">${cur*c.w} / ${c.w*5}</div></div>`}).join('');
+  const all=CRIT.every(c=>(Number(t.scores[c.id])||0)>0),tot=score80(t),V=$('#sc-verdict'),N=$('#sc-note');
+  $('#sc-total').textContent=`${tot} / 80`;
+  if(!all){V.className='tag';V.textContent=`Belum lengkap (${tot} poin sejauh ini)`;N.textContent='Nilai semua 8 kriteria dari 1 (lemah) sampai 5 (kuat) untuk menilai kelayakan.';}
+  else if(tot>=60){V.className='tag ok';V.textContent='Kandidat kuat (60+)';N.textContent='Layak, berbasis celah, dan didukung dengan baik. Lanjutkan ke validasi pembimbing dan pitch satu paragraf.';}
+  else if(tot>=50){V.className='tag est';V.textContent='Menjanjikan, perkuat titik lemah (50–59)';N.textContent='Perbaiki kriteria bernilai 1–2 (terutama akses data, kejelasan celah, atau minat) sebelum berkomitmen.';}
+  else{V.className='tag bad';V.textContent='Di bawah 50, sempurnakan atau ganti';N.textContent='Bandingkan dengan Topik 2 atau Topik 3 dari daftar jamak Anda dan perbaiki batasan yang skornya rendah.';}
+  $('#sc-bars').innerHTML=CRIT.map(c=>{const e=(Number(t.scores[c.id])||0)*c.w,mx=c.w*5;return `<div class="hbar"><span>${c.s}</span><span class="track"><span class="cap" style="width:${mx/15*100}%"></span><span class="fill" style="width:${e/15*100}%"></span></span><span class="v">${e}/${mx}</span></div>`}).join('');
+  $$('.rate button').forEach(b=>b.addEventListener('click',()=>{S.topics[S.slot].scores[b.dataset.c]=Number(b.dataset.n);renderScore();renderChecks();save();}));
+}
+$$('[data-slot]').forEach(b=>b.addEventListener('click',()=>{S.slot=Number(b.dataset.slot);renderScore();save();}));
+$('#topic-title').addEventListener('input',e=>{S.topics[S.slot].title=e.target.value;save();});
+
+/* Checklists & progress */
+function renderChecks(){
+  let gd=0,gt=0;
+  ['funding','supervisor','topic'].forEach(sec=>{const boxes=$$(`[data-section="${sec}"] input[data-id]`);let d=0;
+    boxes.forEach(cb=>{const on=!!S.checks[cb.dataset.id];cb.checked=on;cb.closest('.ck').classList.toggle('done',on);if(on)d++;});
+    gd+=d;gt+=boxes.length;$('#badge-'+sec).textContent=`${d} / ${boxes.length} selesai`;$('#kpi-'+sec).textContent=`${d} / ${boxes.length}`;});
+  $('#kpi-best').textContent=`Terbaik: ${Math.max(...S.topics.map(score80))}/80`;
+  $('#overall-label').textContent=`${gd} / ${gt}`;$('#overall-bar').setAttribute('aria-valuenow',gd);$('#overall-fill').style.width=(gt?gd/gt*100:0)+'%';
+}
+$$('.ck input[data-id]').forEach(cb=>cb.addEventListener('change',()=>{S.checks[cb.dataset.id]=cb.checked;renderChecks();save();}));
+
+/* Export & reset */
+$('#export').addEventListener('click',()=>{
+  const lines=['RINGKASAN PERSIAPAN PhD','Dibuat: '+new Date().toLocaleDateString('id-ID',{day:'numeric',month:'long',year:'numeric'}),''];
+  [['funding','Bagian 01 · Pendanaan & Dokumen'],['supervisor','Bagian 02 · Pembimbing'],['topic','Bagian 03 · Topik Riset']].forEach(([sec,lbl])=>{lines.push(lbl);$$(`[data-section="${sec}"] .ck`).forEach(r=>{const cb=r.querySelector('input');lines.push(`  [${S.checks[cb.dataset.id]?'x':' '}] ${r.querySelector('b').textContent}`)});lines.push('');});
+  lines.push('Skor kelayakan topik:');S.topics.forEach((t,i)=>lines.push(`  Topik ${i+1}: ${t.title||'-'} — ${score80(t)}/80`));
+  lines.push('','Draf email ke pembimbing:','',$('#em-subject').textContent,'',$('#em-body').textContent);
+  const blob=new Blob([lines.join('\n')],{type:'text/plain;charset=utf-8'}),a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);a.download='ringkasan-persiapan-phd.txt';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),1000);
+  $('#save-feedback').textContent='Ringkasan diunduh.';setTimeout(()=>$('#save-feedback').textContent='',3000);
+});
+$('#reset').addEventListener('click',()=>{$('#reset-confirm').hidden=false;$('#reset').hidden=true;});
+$('#reset-no').addEventListener('click',()=>{$('#reset-confirm').hidden=true;$('#reset').hidden=false;});
+$('#reset-yes').addEventListener('click',()=>{S=JSON.parse(JSON.stringify(DEFAULT));try{localStorage.removeItem(KEY)}catch(e){}hydrateEmail();renderEmail();renderScore();renderChecks();$('#reset-confirm').hidden=true;$('#reset').hidden=false;$('#save-feedback').textContent='Progres tersimpan sudah dihapus.';setTimeout(()=>$('#save-feedback').textContent='',3000);});
+
+renderFunding();hydrateEmail();renderEmail();showEx('housing');renderScore();renderChecks();
+</script>
+</body>
+</html>

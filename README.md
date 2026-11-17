@@ -2,7 +2,7 @@
 
 Daftar beasiswa PhD luar negeri (fully funded) untuk dosen dan tendik, dengan tenggat November 2026 sampai Desember 2027. Tabel bisa disaring per bulan tenggat, status tanggal (resmi/estimasi/bergulir), bidang, kawasan, dan sumber dana.
 
-Buka `index.html` di browser, atau aktifkan GitHub Pages (Settings → Pages → Deploy from branch `main`, folder `/`).
+Situs punya dua tab: daftar beasiswa (`index.html`) dan Panduan Persiapan PhD (`panduan/`). Buka `index.html` di browser, atau aktifkan GitHub Pages (Settings → Pages → Deploy from branch `main`, folder `/`).
 
 Disusun 23 Oktober 2026, diperbarui 31 Oktober 2026 (tambahan Fakultas Kedokteran & Kesehatan dan Fakultas Desain Kreatif & Bisnis Digital, termasuk fellowship dokter spesialis dan skema parsial yang ditandai). Tanggal berlabel "Estimasi" mengikuti pola siklus sebelumnya; periksa halaman resmi sebelum dipakai.
 
